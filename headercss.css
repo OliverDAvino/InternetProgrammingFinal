@@ -1,0 +1,59 @@
+body{
+    margin:0;
+    padding:0;
+}
+header {
+    padding: 1em;
+    text-align: right;
+    justify-content: right;
+    display:flex;
+    gap: 20px;
+    height: 35px;
+    background-color: darkcyan;
+}
+
+#searchButton{
+    background-image: url('SearchButtonBackground.png');
+    width: 35px;
+    height: 36px;
+
+    /* border: 1px solid black; */
+    background-color: gray;
+    border-radius: 18px 0 0 18px; 
+    background-size: cover; 
+}
+
+#searchBar{
+    width: 40em;
+    height: 35px;
+    margin-right: 10em;
+
+
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+button {
+
+    cursor: pointer;
+}
+
+#cartButton{
+    background-image: url('cartButtonBackground.png');
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    width:35px;
+    height:35px;
+}
+
+#signOutButton , #orderButton{
+    border:none;
+    background-color: transparent;
+    font-size: 20;
+    font-weight: bold;
+    text-decoration: underline;
+}
