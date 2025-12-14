@@ -2,6 +2,7 @@ body{
     margin:0;
     padding-top:60px;
 }
+
 header{
     position: fixed;
     top: 0;
@@ -47,7 +48,7 @@ header > div{
     height: 40px;
     margin-right: 3%;
     border-radius: 0 9px 9px 0; 
-    font-size: 16;
+    font-size: 16px;
 
 
 
@@ -64,6 +65,10 @@ header > div{
 }
 
 
+#searchBar,#searchButton {
+    box-sizing: border-box;
+    height: 40px;
+}
 
 .buttonHover:hover{
     transform: scale(1.1);
@@ -89,7 +94,7 @@ button {
 #signOutButton , #orderButton{
     border:none;
     background-color: transparent;
-    font-size: 20;
+    font-size: 20px;
     font-weight: bold;
     text-decoration: underline;
 }
