@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <head>
         <link rel="stylesheet" href="headercss.css">
+        <link rel="stylesheet" href="cartCss.css">
+        <script src="cartJS.js"></script>
 
-<head>
-    <link rel="stylesheet" href="headercss.css">
+        <title>Shopping Cart</title>
+
 </head>
+
+<body>
 <header>
         <div>
                 <!--add Logo top left-->
                 <h1 class="logo">
                         <a href="mainPage.html">MyShop</a>
+
                 </h1>
 
 
@@ -28,5 +33,24 @@
                 <a>enter whatever we wanna add here</a>
                 <a>whatever</a>
         </nav>
+
+        <main>
+                <h1>Your Shopping Cart</h1>
+                        <aside>
+                                <div id="cart-container"></div>
+                                
+                                        <div id="cart-summary">
+                                                <p>Subtotal: $<span id="subtotal">0.00</span></p>
+                                                <p>Tax (10%): $<span id="tax">0.00</span></p>
+                                                <p>Total: $<span id="total">0.00</span></p>
+                                        </div>
+                        
+                                <div id="cart-actions">
+                                        <a href="index.html">Continue Shopping</a>
+                                        <button id="checkoutButton">Proceed to Checkout</button>
+                                </div> 
+                        </aside>
+            </div> 
+        </main>
 </header> 
 </body>
