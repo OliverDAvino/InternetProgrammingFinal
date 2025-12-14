@@ -2,47 +2,70 @@ body{
     margin:0;
     padding:0;
 }
-header {
+header > div{
     padding: 1em;
     text-align: right;
     justify-content: right;
     display:flex;
     gap: 20px;
     height: 35px;
-    background-color: darkcyan;
+    background-color: rgb(19, 113, 126);
+}
+
+.logo{
+    display: flex;
+    justify-content: left;
+    margin-right:10%;
+}
+
+header > div > img{
+    background-image: url('images/Pseudobank.png');
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    width:70px;
+    height:50px;
+}
+
+#searchBar{ 
+    width:100%;
+    height: 40px;
+    margin-right: 3%;
+    border-radius: 0 9px 9px 0; 
+    font-size: 16;
+
+
+
 }
 
 #searchButton{
-    background-image: url('SearchButtonBackground.png');
-    width: 35px;
-    height: 36px;
+    background-image: url('images/SearchButtonBackground.png');
 
-    /* border: 1px solid black; */
+    height: 40px;
+    width: 40px;
     background-color: gray;
-    border-radius: 18px 0 0 18px; 
+    border-radius: 9px 0 0 9px; 
     background-size: cover; 
-}
-
-#searchBar{
-    width: 40em;
-    height: 35px;
-    margin-right: 10em;
-
-
 }
 
 .search-container {
   display: flex;
   align-items: center;
+  width: 65%;
+}
+
+.buttonHover:hover{
+    transform: scale(1.1);
+    color: rgb(95, 94, 94);
+
 }
 
 button {
-
     cursor: pointer;
 }
 
 #cartButton{
-    background-image: url('cartButtonBackground.png');
+    background-image: url('images/cartButtonBackground.png');
     background-size: cover;
     background-color: transparent;
     border: none;
@@ -50,10 +73,22 @@ button {
     height:35px;
 }
 
+
+
 #signOutButton , #orderButton{
     border:none;
     background-color: transparent;
     font-size: 20;
     font-weight: bold;
     text-decoration: underline;
+}
+
+header > nav {
+    padding: 1em;
+    text-align: left; 
+    display:flex;
+    justify-content: left;
+    gap: 20px;
+    height: 10px;
+    background-color: rgb(40, 149, 163);
 }
