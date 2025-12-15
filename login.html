@@ -14,14 +14,14 @@
 
     <div class="login-container">
         <h1>Login</h1>
-        <form>
+        <form id="loginForm">
             <label for="email">Email:</label>
-            <input type="text" id="email">
+            <input type="text" id="email" required>
             </br>
             <label for="password">Password:</label>
-            <input type="password" id="password">
+            <input type="password" id="password" title="Must be between 8 and 24 characters, have at least 1 uppercase letter and 1 lowercase letter and 1 number" required pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,24}">
             </br>
-            <button type="button" id="loginButton">Log in</button>
+            <button type="submit" id="loginButton">Log in</button>
             <button type="button" href="register.html" id="registerButton">Register</button>
         </form>
     </div>
