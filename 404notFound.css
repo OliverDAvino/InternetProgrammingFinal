@@ -1,16 +1,23 @@
+body
+{
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(90deg,#4b6cb7,#182848);
+    height: 100vh;
+}
+
 
 section
 {
-    background-color: rgb(40, 149, 163);
+    background-color:   rgba(32, 29, 72);
     max-width: 600px;
-    padding: 10px;
-    border:none;
+    width:90%;
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
     color: white;
-    border-radius: 8px;
-    
-    
-    
-    
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    animation: fadingin 0.8s ease-in-out;
 
 }
 
@@ -23,7 +30,7 @@ a
 
 .movetomiddle
 {
-    min-height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,15 +43,29 @@ a
 { 
     font-size: 40px;
     font-weight: bold;
-    letter-spacing: 1px;
     color: white;
-    margin: 0;
-    margin-right:auto;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover
+{
+    color:#ffdd57;
+    transform: scale(1.05);
 }
 
 h5
 {
-    font-size: 20px;
+    margin-top: 20px;
+    font-size:18px;
+    line-height: 1.5;
 
+
+}
+
+@keyframes fadingin /*Its like a custom animation*/
+{
+    from{opacity:0;transform:translateY(-20px);}
+    to{opacity:1;transform:translateY(0);}
 
 }

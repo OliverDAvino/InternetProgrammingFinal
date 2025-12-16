@@ -5,11 +5,12 @@ body,html
 
 footer
 {
-    background-color: rgba(32, 29, 72);
+    background: linear-gradient(135deg,#4b6cb7,#182848);
     display: grid;
     color: white;
     grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
     gap: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 40px 60px;
     align-items: start;
 }
