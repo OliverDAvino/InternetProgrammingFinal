@@ -5,7 +5,6 @@ $(document).ready(() => {
 
         if (checkPassword()){
             register();
-            document.querySelector("#regForm").reset();
         }
     })
 })
@@ -20,9 +19,9 @@ function register(){
         headers: {"x-api-key": "reqres_f1ac177d9f6748d1924e2bdb8a2f312c"},
         data: JSON.stringify(regInfo),
         success: (r) => {
-            document.cookie = "regToken=" + r.token // can make it so that it validates email and password
-        },
-        error: (err) => {console.log(err.responseText)}
+            document.cookie = "regToken=" + r.token + ";path=/"; // can make it so that it validates email and password
+            window.location.href = "login.html";
+        }
     });
 }
 

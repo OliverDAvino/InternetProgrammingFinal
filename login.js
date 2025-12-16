@@ -7,7 +7,7 @@ $(document).ready(() => {
     $("#loginForm").submit((e) => {
         e.preventDefault();
 
-        login
+        login();
     })
 })
 
@@ -20,7 +20,25 @@ function login(){
         contentType: "application/json",
         headers: {"x-api-key": "reqres_f1ac177d9f6748d1924e2bdb8a2f312c"},
         data: JSON.stringify(loginInfo),
-        success: (r) => {console.log(r)},
+        success: (r) => {
+            if (r.token == getRegToken()){
+                document.cookie = "loginToken=" + r.token;
+                window.location.href = "account.html"
+            }
+            else{
+                alert("You need to register first.")
+            }
+        },
         error: (err) => {console.log(err.responseText)} 
     });
+}
+
+function getRegToken(){
+    var cookies = document.cookie.split(";");
+    for (var cookie of cookies){
+        var [name, value] = cookie.split("=");
+        if (name == "regToken"){
+            return value;
+        }
+    }
 }
