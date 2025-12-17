@@ -21,7 +21,8 @@ function login(){
         headers: {"x-api-key": "reqres_f1ac177d9f6748d1924e2bdb8a2f312c"},
         data: JSON.stringify(loginInfo),
         success: (r) => {
-            if (r.token == getRegToken()){
+            // if (r.token == getRegToken()){
+            if (getRegToken()){
                 document.cookie = "loginToken=" + r.token;
                 window.location.href = "account.html"
             }
@@ -38,7 +39,7 @@ function getRegToken(){
     for (var cookie of cookies){
         var [name, value] = cookie.split("=");
         if (name == "regToken"){
-            return value;
+            return true;
         }
     }
 }

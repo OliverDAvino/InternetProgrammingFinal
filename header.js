@@ -10,7 +10,16 @@ $(document).ready(async function () {
   setupHeaderButtons();
   setupLiveSearch();
   await loadProducts();
+
+
+  //////////////
+
+    $("a.category").click((e) => {
+        
+    });
 });
+
+
 
 async function loadHeader() {
   const html = await fetch("header.html").then(r => r.text());
