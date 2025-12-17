@@ -38,8 +38,13 @@ async function addAllProducts(){
 
     var params = new URLSearchParams(window.location.search);
     var category = params.get('category');
+    var search = params.get('search');
 
     var allProducts = await fetch(`data/${category}.json`).then(r => r.json());
+
+    if (search != null){
+        allProducts = allProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
+    }
 
     allProducts = allProducts.filter(product => $("#maxPriceRange").val() >= product.price && product.price >= $("#minPriceRange").val());
 
