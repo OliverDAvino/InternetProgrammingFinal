@@ -1,29 +1,42 @@
-document.addEventListener("DOMContentLoaded", (e) => {
-    addAllProducts();
 
-    addSortChange();
-    addMaxAndMinChange();
+
+document.addEventListener("DOMContentLoaded", (e) => {
+    addProduct();
+
+    var params = new URLSearchParams(window.location.search);
+    addAllProducts(params.get("category"));
 })
 
 
+function addProduct(name, category, price, description, stock, imgId, changeNum, sku){
+    if (name === undefined){
+var params = new URLSearchParams(window.location.search);
 
-function addProduct(name, category, price, description, stock, imgId, changeNum){
-    var product = $("<div>").addClass("product"); // add on click product: show product page
+    var name = params.get("name");
+    var category = params.get("category");
+    var sku = params.get("sku");
+    var price = params.get("price");
+    var description = params.get("description");
+    var stock = params.get("stock");
+
+    
     var info = $("<div>").addClass("info");
+    
+    var product = $("#singleProduct");
 
-
-    var imgUrl = "https://picsum.photos/200/300?random=" + (imgId - (imgId%changeNum));
+    var imgUrl = "https://picsum.photos/200/300";
     
     product.append(`<img src="${imgUrl}" alt="Random image">`);
 
     product.append(info);
     
 
-    info.append(`Product Name: ${name}<br>`);
-    info.append(`Categoty: ${category}<br>`);
-    info.append(`Price: ${price}$<br>`);
-    info.append(`Description: ${description}<br>`);
-    info.append(`Stock: ${stock}<br>`);
+    info.append(`Product Name: <div class="productName" value="${name}">${name}</div><br>`);
+    info.append(`Category: <div class="category" value="${category}">${category}</div><br>`);
+    info.append(`SKU: <div class="sku" value="${sku}">${sku}</div><br>`);
+    info.append(`Price: <div class="price" value="${price}">${price}</div><br>`);
+    info.append(`Description: <div class="description" value="${description}">${description}</div><br>`);
+    info.append(`Stock: <div class="stock" value="${stock}">${stock}</div><br>`);
     
     var button = $("<button>");
     product.append(button.html("Add to Cart"));
@@ -31,6 +44,30 @@ function addProduct(name, category, price, description, stock, imgId, changeNum)
     addButtonEvent(button);
 
     return product;
+    }
+    else{
+        var product = $("<div>").addClass("product"); // add on click product: show product page
+        var info = $("<div>").addClass("info");
+
+
+        var imgUrl = "https://picsum.photos/200/300?random=" + (imgId - (imgId%changeNum));
+        
+        product.append(`<img src="${imgUrl}" alt="Random image">`);
+
+        product.append(info);
+        
+
+        info.append(`Product Name: <div class="productName" value="${name}">${name}</div><br>`);
+        info.append(`Category: <div class="category" value="${category}">${category}</div><br>`);
+        info.append(`SKU: <div class="sku" value="${sku}">${sku}</div><br>`);
+        info.append(`Price: <div class="price" value="${price}">${price}</div><br>`);
+        info.append(`Description: <div class="description" value="${description}">${description}</div><br>`);
+        info.append(`Stock: <div class="stock" value="${stock}">${stock}</div><br>`);
+
+        addDivEvent(product);
+
+        return product;
+    }
 }
 
 function addButtonEvent(button){
@@ -40,6 +77,23 @@ function addButtonEvent(button){
         document.cookie = "cartAmt=" + (amt+1);
 
         
+    });
+}
+
+function addDivEvent(product){
+    product.click((e) => {
+        var el = $(e.currentTarget);
+            
+        var url =
+        `singleProduct.html?` +
+        `name=${encodeURIComponent(el.find(".productName").attr("value"))}` +
+        `&category=${encodeURIComponent(el.find(".category").attr("value"))}` +
+        `&sku=${encodeURIComponent(el.find(".sku").attr("value"))}` +
+        `&price=${encodeURIComponent(el.find(".price").attr("value"))}` +
+        `&description=${encodeURIComponent(el.find(".description").attr("value"))}` +
+        `&stock=${encodeURIComponent(el.find(".stock").attr("value"))}`;
+
+        window.location.href = url;
     });
 }
 
@@ -70,62 +124,17 @@ function getCart(){
 }
 
 
-async function addAllProducts(){
+async function addAllProducts(category){
     var products = $("#products");
-
-    var sort = $("#sort").val();
-
-    var params = new URLSearchParams(window.location.search);
-    var category = params.get('category');
-    var search = params.get('search');
 
     var allProducts = await fetch(`data/${category}.json`).then(r => r.json());
 
-    if (search != null){
-        allProducts = allProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
-    }
-
-    allProducts = allProducts.filter(product => $("#maxPriceRange").val() >= product.price && product.price >= $("#minPriceRange").val());
-
-    if (sort == "asc"){
-        allProducts.sort((a, b) => a.price - b.price);
-    }
-    else{
-        allProducts.sort((a, b) => b.price - a.price);
-    }
-
     allProducts.forEach(p => {
-        products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 67));
+        products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 67, p.sku));
     });
 }
 
 
 function clear(){
     $("#products").html("");
-}
-
-function addSortChange(){
-    $("#sort").change(() => {
-        clear();
-        console.log()
-        addAllProducts();
-    })
-}
-
-function addMaxAndMinChange(){
-    $("#maxPriceRange").change(() => {
-        var val = $("#maxPriceRange").val();
-        $("#minPriceRange").attr("max", val);
-        $("#maxPriceValue").html(val + "$");
-        clear();
-        addAllProducts();
-    });
-
-    $("#minPriceRange").change(() => {
-        var val = $("#minPriceRange").val();
-        $("#maxPriceRange").attr("min", val);
-        $("#minPriceValue").html(val + "$");
-        clear();
-        addAllProducts();
-    });
 }

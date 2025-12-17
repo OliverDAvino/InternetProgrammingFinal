@@ -19,12 +19,12 @@ function addProduct(name, category, price, description, stock, imgId, changeNum,
     product.append(info);
     
 
-    info.append(`Product Name: <div id="productName">${name}</div><br>`);
-    info.append(`Category: <div id="category">${category}</div><br>`);
-    info.append(`SKU: <div id="sku">${sku}</div><br>`);
-    info.append(`Price: <div id="price">${price}</div><br>`);
-    info.append(`Description: <div id="description">${description}</div><br>`);
-    info.append(`Stock: <div id="stock">${stock}</div><br>`);
+    info.append(`Product Name: <div class="productName" value="${name}">${name}</div><br>`);
+    info.append(`Category: <div class="category" value="${category}">${category}</div><br>`);
+    info.append(`SKU: <div class="sku" value="${sku}">${sku}</div><br>`);
+    info.append(`Price: <div class="price" value="${price}">${price}</div><br>`);
+    info.append(`Description: <div class="description" value="${description}">${description}</div><br>`);
+    info.append(`Stock: <div class="stock" value="${stock}">${stock}</div><br>`);
 
     addDivEvent(product);
 
@@ -32,10 +32,19 @@ function addProduct(name, category, price, description, stock, imgId, changeNum,
 }
 
 function addDivEvent(product){
-    product.click(() => {
-        
+    product.click((e) => {
+        var el = $(e.currentTarget);
+            
+        var url =
+        `singleProduct.html?` +
+        `name=${encodeURIComponent(el.find(".productName").attr("value"))}` +
+        `&category=${encodeURIComponent(el.find(".category").attr("value"))}` +
+        `&sku=${encodeURIComponent(el.find(".sku").attr("value"))}` +
+        `&price=${encodeURIComponent(el.find(".price").attr("value"))}` +
+        `&description=${encodeURIComponent(el.find(".description").attr("value"))}` +
+        `&stock=${encodeURIComponent(el.find(".stock").attr("value"))}`;
 
-        
+        window.location.href = url;
     });
 }
 
