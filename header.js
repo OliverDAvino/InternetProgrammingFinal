@@ -50,7 +50,7 @@ async function loadProducts() {
 function performSearch(query) {
     if (!query || !query.trim()) return;
 
-    window.location.href = "search.html?q=" + encodeURIComponent(query.trim());
+    window.location.href = "product.html?category=Products&search=" + encodeURIComponent(query.trim());
 }
 
 function setupLiveSearch() {
