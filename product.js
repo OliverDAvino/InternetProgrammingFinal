@@ -23,6 +23,7 @@ function addProduct(name, category, price, description, stock, imgId, changeNum)
     }
     product.append(`<img src="${imgUrl}" alt="Random image"><br>`);
     product.append(`Stock: ${stock}<br>`);
+    product.append($("<button>").html("Add to Cart"));
 
     return product;
 }
