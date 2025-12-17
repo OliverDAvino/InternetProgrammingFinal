@@ -1,7 +1,4 @@
-/*body{
-    margin:0;
-    
-}*/
+
 
 header{
     position: fixed;
@@ -19,8 +16,13 @@ header > div{
     display:flex;
     gap: 20px;
     height: 35px;
-    background-color: #0f75bb;
+    background: linear-gradient(to right,#0f75bb,#5e5c5c);
+
 }
+
+
+
+
 
 .logo{
     margin-right: auto;
@@ -50,6 +52,7 @@ header > div{
 
 
 
+
 .search-container {
   display: flex;
   align-items: center;
@@ -72,7 +75,7 @@ header > div{
     background-image: url('images/SearchButtonBackground.png');
     height: 40px;
     width: 40px;
-    background-color: gray;
+    background-color: #5e5c5c;
     border-radius: 9px 0 0 9px; 
     background-size: cover; 
 }
@@ -119,7 +122,8 @@ header > nav {
     justify-content: left;
     gap: 20px;
     height: 15px;
-    background-color: #7c7878;
+    background: linear-gradient(to right,#0f75bb,#5e5c5c);
+
 }
 
 header > nav > ul {

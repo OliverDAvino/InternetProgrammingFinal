@@ -2,18 +2,18 @@ body
 {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(90deg,#4b6cb7,#182848);
+    background: white;
     height: 100vh;
 }
 
 
 section
 {
-    background-color:   rgba(32, 29, 72);
+    background: linear-gradient(to right,#0f75bb,#5e5c5c);
     max-width: 600px;
     width:90%;
     padding: 40px 30px;
-    border-radius: 12px;
+    
     text-align: center;
     color: white;
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);

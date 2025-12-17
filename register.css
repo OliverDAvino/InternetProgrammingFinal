@@ -1,0 +1,245 @@
+html,body
+{
+    height: 100%;
+    margin: 0;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right,#ffffff,#5e5c5c,#0f75bb);
+}
+
+#content
+{
+    flex:1;
+}
+
+
+
+
+body
+{
+    
+    background: linear-gradient(to right,#ffffff,#5e5c5c,#0f75bb);
+}
+
+.login-container{
+    animation: fadingin 0.8s ease-in-out;
+    text-align: center;
+    background-color: #FFF;
+    margin: 80px auto;
+    padding:40px 50px;
+    width: 600px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    border: none;
+    
+}
+
+
+
+#loginForm input[type="text"],
+#loginForm input[type="password"]
+{
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0 20px 0;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size:16px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+
+
+#loginForm input:focus-visible
+{
+    border-color: #0f75bb;
+
+}
+
+#loginForm
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    left:-15px;
+}
+
+#loginButton{
+    
+    background: #0f75bb;
+
+
+}
+
+#loginButton:hover
+{
+    
+    background: #033c64;
+    
+   
+}
+
+#registerButton
+{
+    background: #0f75bb;
+   
+
+}
+
+#registerButton:hover
+{
+    background: #033c64;
+    
+   
+}
+
+#loginForm label
+{
+    color:black;
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Fredoka',sans-serif;
+}
+
+#loginForm  #loginButton
+{
+    display: block;
+    margin: 30px auto;
+    color: white;
+    font-family: 'Fredoka',sans-serif;
+    padding:12px;
+    font-size:16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border:none;
+    border-radius:20px;
+    width:200px;
+
+
+}
+
+
+#loginForm  #registerButton
+{
+    display: block;
+    margin: 30px auto;
+    color: white;
+    font-family: 'Fredoka',sans-serif;
+    padding:12px;
+    font-size:16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border:none;
+    border-radius:20px;
+    width:200px;
+
+
+}
+
+.line
+{
+    display: block;
+    
+    margin-top:30px;
+    margin-bottom: 60px;
+    margin-right: auto;
+    margin-left: auto;
+    background: black;
+    width: 400px;
+    height: 1px;
+}
+
+
+.textabove
+{
+    animation: fadingin 0.8s ease-in-out;
+    text-align: center;
+    margin-top: 70px;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+    
+    
+}
+
+.textabove h1
+{
+    color:#111;
+    font-size: 28px;
+}
+
+.textabove h3
+{
+    color:#333;
+}
+
+
+.logo
+{
+    animation: fadingin 0.8s ease-in-out;
+    display: block;
+    margin: 80px auto 0px auto;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    max-width: 50px;
+    max-width: 50px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    background-color: #0f75bb;
+}
+
+
+.logo p
+{
+
+    
+    
+    color: white;
+    margin-top: 18px;
+    margin-left: 5.5px;
+    
+    font-weight: bold;
+
+    
+}
+
+.logo:hover
+{
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.cancelsignin
+{
+
+    margin-left: 615px;
+    color: #0f75bb;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.cancelsignin:hover
+{
+    color: #033c64;
+}
+
+
+@keyframes fadingin
+{
+    from{opacity:0;transform:translateY(-20px);}
+    to{opacity:1;transform:translateY(0);}
+
+}
+
+
+
