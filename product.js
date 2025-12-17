@@ -11,10 +11,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 function addProduct(name, category, price, description, stock, imgId, changeNum){
     var product = $("<div>").addClass("product"); // add on click product: show product page
-    product.append(`Product Name: ${name}<br>`);
-    product.append(`Categoty: ${category}<br>`);
-    product.append(`Price: ${price}$<br>`);
-    product.append(`Description: ${description}<br>`);
+    var info = $("<div>").addClass("info");
+
     if (imgId % changeNum == 0){
         var imgUrl = "https://picsum.photos/200/300?random=" + imgId;
     }
@@ -22,7 +20,16 @@ function addProduct(name, category, price, description, stock, imgId, changeNum)
         var imgUrl = "https://picsum.photos/200/300?random=" + (imgId - (imgId%changeNum));
     }
     product.append(`<img src="${imgUrl}" alt="Random image"><br>`);
-    product.append(`Stock: ${stock}<br>`);
+    
+    product.append(info);
+    
+
+    info.append(`Product Name: ${name}<br>`);
+    info.append(`Categoty: ${category}<br>`);
+    info.append(`Price: ${price}$<br>`);
+    info.append(`Description: ${description}<br>`);
+    info.append(`Stock: ${stock}<br>`);
+    
     product.append($("<button>").html("Add to Cart"));
 
     return product;
