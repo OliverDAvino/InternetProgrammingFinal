@@ -1,37 +1,39 @@
 <!DOCTYPE html>
-<head>
-    <title>Product List</title>
-    <link rel="stylesheet" href="product.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="header.js"></script>
-    <script src="footer.js"></script>
-    <script src="product.js"></script>
-</head> 
-<body>
-        <div id="header"></div>
-        <br><br><br><br><br><br><br>
 
-        <label for="sort">Sort By: </label>
-        <select id="sort">
-            <option value="desc">High to Low</option>
-            <option value="asc">Low to High</option>
-        </select>
+<html>
+    <head>
+        <title>Product List</title>
+        <link rel="stylesheet" href="product.css">
+        <link rel="stylesheet" href="header.css">
+        <link rel="stylesheet" href="footer.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="header.js"></script>
+        <script src="footer.js"></script>
+        <script src="product.js"></script>
+    </head> 
+    <body>
+            <div id="header"></div>
+            <br><br><br><br><br><br><br>
 
-        <label for="priceRange">Min Price: </label>
-        <input type="range" id="minPriceRange" min="0" max="250" step="10" value="0">
-        <span id="minPriceValue">0$</span>
-        
-        <label for="priceRange">Max Price: </label>
-        <input type="range" id="maxPriceRange" min="0" max="250" step="10" value="250">
-        <span id="maxPriceValue">250$</span>
+            <label for="sort">Sort By: </label>
+            <select id="sort">
+                <option value="desc">High to Low</option>
+                <option value="asc">Low to High</option>
+            </select>
+
+            <label for="priceRange">Min Price: </label>
+            <input type="range" id="minPriceRange" min="0" max="250" step="10" value="0">
+            <span id="minPriceValue">0$</span>
+            
+            <label for="priceRange">Max Price: </label>
+            <input type="range" id="maxPriceRange" min="0" max="250" step="10" value="250">
+            <span id="maxPriceValue">250$</span>
 
 
-        <div class="containerforproducts">
-            <div class="products" id="products"></div>
-        </div>
+            <div class="containerforproducts">
+                <div class="products" id="products"></div>
+            </div>
 
-        <div id="footer"></div>
-</body>
+            <div id="footer"></div>
+    </body>
 </html>
