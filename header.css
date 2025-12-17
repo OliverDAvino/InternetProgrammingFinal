@@ -1,7 +1,7 @@
-body{
+/*body{
     margin:0;
-    padding-top:60px;
-}
+    
+}*/
 
 header{
     position: fixed;
@@ -15,28 +15,40 @@ header{
 
 header > div{
     padding: 1em;
-    text-align: right;
-    justify-content: right;
+    align-items: center;
     display:flex;
     gap: 20px;
     height: 35px;
-    background-color: rgb(19, 113, 126);
+    background-color: #0f75bb;
 }
 
 .logo{
-    font-size: 28px;
-    font-weight: bold;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 1px;
-    color: white;
-    margin: 0;
-    margin-right:auto;
+    margin-right: auto;
+   
+    
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    max-width: 50px;
+    max-width: 50px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    background-color: #0f75bb;
 }
 
-.logo a {
-    text-decoration: none;
+.logo p
+{
+
     color: white;
+    margin-top: 18px;
+    margin-left: 5.5px;
+    
+    font-weight: bold;
+
+    
 }
+
+
 
 .search-container {
   display: flex;
@@ -107,7 +119,7 @@ header > nav {
     justify-content: left;
     gap: 20px;
     height: 15px;
-    background-color: rgb(40, 149, 163);
+    background-color: #7c7878;
 }
 
 header > nav > ul {
