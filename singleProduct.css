@@ -17,6 +17,13 @@ body
 }
 
 
+#singleProduct
+{
+    display: block;
+    margin: 10px auto;
+    height:800px;
+}
+
 .products
 {
     display: flex;
@@ -86,3 +93,4 @@ body
     background: #f5f5f5;
     
 }
+

@@ -15,28 +15,22 @@
     <body>
         <div id="header"></div>
 
-        <main>
-            <h2>Payment</h2>
-            <br><br>
+        <main class="paymentcontainer">
+            <h1>Payment</h1>
             <h5>Card Number</h5> 
-            <br>
             <!--can only be numeric-->
             <input type="text" placeholder="1234-4321-1234" id="cardNumber">
-            <br><br>
             <!--can only be numeric-->
             <h5>Expiry Date</h5>
             <input type="text" placeholder="MM/YY" id="expiryDate">
             <!--can only be numeric-->
             <h5>CVV</h5>
             <input type="text" placeholder="000" id="cvv">
-            <br><br>
             <h5>Name on card</h5>
             <input type="text" id="cardholder">
-            <br><br><br>
             <!--remove this if you dont wanna do allat-->
-            <h3>Billing address</h3>
+            <h5>Billing address</h5>
             <input type="text" id="billingAddress" placeholder="Enter address">
-            <br><br>
             <button type="submit" id="paymentButton">Place Order and Pay</button>
         </main>
 

@@ -1,0 +1,144 @@
+
+
+
+
+
+
+
+body
+{
+    
+    background: linear-gradient(to right,#ffffff,#5e5c5c,#0f75bb);
+}
+
+.paymentcontainer{
+    animation: fadingin 0.8s ease-in-out;
+    text-align: center;
+    background-color: #FFF;
+    margin: 200px auto;
+    padding:40px 50px;
+    width: 600px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    border: none;
+    
+}
+
+
+
+.paymentcontainer input[type="text"]
+{
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0 20px 0;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size:16px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+
+
+#regForm input:focus-visible
+{
+    border-color: #0f75bb;
+
+}
+
+#regForm
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    left:-15px;
+}
+
+
+
+#registerButton
+{
+    background: #0f75bb;
+   
+
+}
+
+#registerButton:hover
+{
+    background: #033c64;
+    
+   
+}
+
+
+
+
+
+
+.paymentcontainer  #paymentButton
+{
+    display: block;
+    margin: 30px auto;
+    color: white;
+    font-family: 'Fredoka',sans-serif;
+    padding:12px;
+    font-size:16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border:none;
+    border-radius:20px;
+    width:200px;
+    background-color: #0f75bb;
+
+
+}
+
+
+.paymentcontainer  #paymentButton:hover
+{
+    background-color: #033c64;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.logo:hover
+{
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.cancelsignin
+{
+
+    margin-left: 615px;
+    color: #0f75bb;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.cancelsignin:hover
+{
+    color: #033c64;
+}
+
+
+
+@keyframes fadingin
+{
+    from{opacity:0;transform:translateY(-20px);}
+    to{opacity:1;transform:translateY(0);}
+
+}
+
+
+
