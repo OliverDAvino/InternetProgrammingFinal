@@ -17,7 +17,7 @@ $(document).ready(async function () {
     $("a.category").click((e) => {
         e.preventDefault();
         var url = $(e.currentTarget).text();
-        window.location.href = "mainPage.html?category=" + encodeURIComponent(url);
+        window.location.href = "product.html?category=" + encodeURIComponent(url);
     });
 });
 

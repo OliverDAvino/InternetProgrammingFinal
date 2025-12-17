@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>Product List</title>
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+    <script src="product.js"></script>
+</head> 
+<body>
+        <div id="header"></div>
+        <br><br><br>
+
+        <label for="sort">Sort By: </label>
+        <select id="sort">
+            <option value="desc">High to Low</option>
+            <option value="asc">Low to High</option>
+        </select>
+
+        <label for="priceRange">Max Price: </label>
+        <input type="range" id="priceRange" min="0" max="250" step="10" value="250">
+        <span id="priceValue">250$</span>
+
+
+        <div id="products">
+        </div>
+
+        <div id="footer"></div>
+</body>
+</html>
