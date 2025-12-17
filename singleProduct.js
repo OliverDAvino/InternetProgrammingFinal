@@ -76,6 +76,23 @@ function addButtonEvent(button){
 
         document.cookie = "cartAmt=" + (amt+1);
 
+        var cart = getCart();
+
+        var params = new URLSearchParams(window.location.search);
+
+        var name = params.get("name");
+        var price = params.get("price");
+
+        var product = {
+        name: name,
+        price: price
+        };
+
+        cart.push(product);
+
+
+        document.cookie = "cart=" + JSON.stringify(cart);
+
         
     });
 }
@@ -119,8 +136,12 @@ function getCart(){
             return JSON.parse(value);
         }
     }
-    document.cookie = "cart=";
-    return 0;
+
+    var arr = [];
+
+
+    document.cookie = "cart=" + JSON.stringify(arr);
+    return arr;
 }
 
 
