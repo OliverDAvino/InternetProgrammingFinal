@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 2em;
+    background-color: #f8f8f8;
+}
+
+.profile-container {
+    max-width: 400px;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    background-color: white;
+    text-align: center;
+}
+
+#userAvatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+    object-fit: cover;
+}
