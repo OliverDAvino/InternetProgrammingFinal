@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 
 
-function addProduct(name, category, price, description, stock, imgId, changeNum, sku){
+function addProduct(name, category, price, description, stock, imgId, changeNum){
     var product = $("<div>").addClass("product"); // add on click product: show product page
     var info = $("<div>").addClass("info");
 
@@ -19,21 +19,25 @@ function addProduct(name, category, price, description, stock, imgId, changeNum,
     product.append(info);
     
 
-    info.append(`Product Name: <div id="productName">${name}</div><br>`);
-    info.append(`Category: <div id="category">${category}</div><br>`);
-    info.append(`SKU: <div id="sku">${sku}</div><br>`);
-    info.append(`Price: <div id="price">${price}</div><br>`);
-    info.append(`Description: <div id="description">${description}</div><br>`);
-    info.append(`Stock: <div id="stock">${stock}</div><br>`);
+    info.append(`Product Name: ${name}<br>`);
+    info.append(`Categoty: ${category}<br>`);
+    info.append(`Price: ${price}$<br>`);
+    info.append(`Description: ${description}<br>`);
+    info.append(`Stock: ${stock}<br>`);
+    
+    var button = $("<button>");
+    product.append(button.html("Add to Cart"));
 
-    addDivEvent(product);
+    addButtonEvent(button);
 
     return product;
 }
 
-function addDivEvent(product){
-    product.click(() => {
-        
+function addButtonEvent(button){
+    button.click(() => {
+        var amt = getCartAmt();
+
+        document.cookie = "cartAmt=" + (amt+1);
 
         
     });
@@ -91,7 +95,7 @@ async function addAllProducts(){
     }
 
     allProducts.forEach(p => {
-        products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 67, p.sku));
+        products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 67));
     });
 }
 
