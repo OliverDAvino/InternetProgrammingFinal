@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", (e) => {
     addAllProducts("desc");
 
-    $("#sort").change(() => {
-        clear();
-        console.log($("#sort").val())
-        addAllProducts($("#sort").val());
-
-    })
+    addSortChange();
 })
+
+
 
 function addProduct(name, category, price, description, stock, imgId, changeNum){
     var product = $("<div>").addClass("product"); // add on click product: show product page
@@ -19,8 +16,8 @@ function addProduct(name, category, price, description, stock, imgId, changeNum)
     else{
         var imgUrl = "https://picsum.photos/200/300?random=" + (imgId - (imgId%changeNum));
     }
-    product.append(`<img src="${imgUrl}" alt="Random image"><br>`);
-    
+    product.append(`<img src="${imgUrl}" alt="Random image">`);
+
     product.append(info);
     
 
@@ -74,4 +71,19 @@ async function addAllProducts(sort){
 
 function clear(){
     $("#products").html("");
+}
+
+function addSortChange(){
+    $("#sort").change(() => {
+        clear();
+        console.log($("#sort").val())
+        addAllProducts($("#sort").val());
+
+    })
+}
+
+function addMaxAndMinChange(){
+    $("#maxPriceRange").change(() => {
+
+    })
 }
