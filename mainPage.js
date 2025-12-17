@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     $("#sort").change(() => {
         clear();
-        addAllProducts("desc");
+        console.log($("#sort").val())
+        addAllProducts($("#sort").val());
 
     })
 })
@@ -32,18 +33,33 @@ async function addAllProducts(sort){
 
     var params = new URLSearchParams(window.location.search);
     var category = params.get('category');
-    console.log(category);
     if (category == "Home" || category == null){
         var allProducts = await fetch("data/products.json").then(r => r.json());
 
+        
+        if (sort == "asc"){
+            allProducts.sort((a, b) => a.price - b.price);
+        }
+        else{
+            allProducts.sort((a, b) => b.price - a.price);
+        }
+
         allProducts.forEach(p => {
-            products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 7));
+            products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 400));
         });
     }
     else{
         var allProducts = await fetch(`data/${category}.json`).then(r => r.json());
+
+        if (sort == "asc"){
+            allProducts.sort((a, b) => a.price - b.price);
+        }
+        else{
+            allProducts.sort((a, b) => b.price - a.price);
+        }
+
         allProducts.forEach(p => {
-            products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 1));
+            products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 67));
         });
     }
 }
