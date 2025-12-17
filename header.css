@@ -86,10 +86,29 @@ header > div{
     height: 40px;
 }
 
-.buttonHover:hover{
+/*.buttonHover:hover{
     transform: scale(1.1);
-    color: rgb(95, 94, 94);
+    
 
+}*/
+
+#signOutButton:hover
+{
+     
+     color: #033c64;
+
+}
+
+#orderButton:hover
+{
+     
+     color: #033c64;
+
+}
+
+#cartButton:hover
+{
+    transform: scale(1.5);
 }
 
 button {
@@ -97,6 +116,7 @@ button {
 }
 
 #cartButton{
+    transition: transform 0.2s ease;
     background-image: url('images/cartButtonBackground.png');
     background-size: cover;
     background-color: transparent;
@@ -109,10 +129,11 @@ button {
 
 #signOutButton , #orderButton{
     border:none;
+    color: white;
     background-color: transparent;
     font-size: 20px;
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration:none;
 }
 
 header > nav {
@@ -138,7 +159,22 @@ header > nav > ul {
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold   ;
+    text-decoration: none;
 }
+
+header > nav > ul >li >a{
+    text-decoration: none;
+    font-size: 13px;
+    color: white;
+    
+}
+
+header > nav > ul >li >a:hover{
+    color: #033c64;
+    
+}
+
+
 
 #results {
     position: absolute;
@@ -173,3 +209,4 @@ header > nav > ul {
 .search-result:hover {
     background-color: #f0f0f0;
 }
+
