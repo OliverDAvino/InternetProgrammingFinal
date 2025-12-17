@@ -9,30 +9,30 @@ $(document).ready(() => {
         return;
     }
 
-    const name = getExpiration("name");
-    const email = getExpiration("email");
+    // const name = getExpiration("name");
+    // const email = getExpiration("email");
 
-    if (!name || !email) {
-        alert("Session expired. Please log in again.");
-        window.location.href = "login.html";
-        return;
-    }
+    // if (!name || !email) {
+    //     alert("Session expired. Please log in again.");
+    //     window.location.href = "login.html";
+    //     return;
+    // }
 
     $("#userName").text(name);
     $("#userEmail").text(email);
     $("#userAvatar").attr("src", "images/default-avatar.png");
 });
 
-function getExpiration(key) {
-    const itemStr = localStorage.getItem(key);
-    if (!itemStr) return null;
+// function getExpiration(key) {
+//     const itemStr = localStorage.getItem(key);
+//     if (!itemStr) return null;
 
-    const item = JSON.parse(itemStr);
-    const now = new Date();
+//     const item = JSON.parse(itemStr);
+//     const now = new Date();
 
-    if (now.getTime() > item.expiry) {
-        localStorage.removeItem(key);
-        return null;
-    }
-    return item.value;
-}
+//     if (now.getTime() > item.expiry) {
+//         localStorage.removeItem(key);
+//         return null;
+//     }
+//     return item.value;
+// }
