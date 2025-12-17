@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-
+<html>
 <head>
     <!--Set a name later-->
     <title>Login</title>
     <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="header.js"></script>
     <script src="footer.js"></script>
     <script src="login.js"></script>
 </head>
 <body>
-    <div id="header"></div>
-
+    
+    
+    <div class="logo"><p>MyShop<p></div>
+    <div class="textabove">
+    <h1>Sign in or create your MyShop&reg; account</h1>
+    <h3>Anything you need, we got your back.</h3>
+    </div>
     <div class="login-container">
-        <h1>Login</h1>
+        
         <form id="loginForm">
-            <label for="email">Email:</label>
+            <button class="cancelsignin" type="button" id="#goback">X</button>
+            <label for="email">Email</label>
             <input type="text" id="email" required>
             </br>
-            <label for="password">Password:</label>
+            <label for="password">Password</label>
             <input type="password" id="password" title="Must be between 8 and 24 characters, have at least 1 uppercase letter and 1 lowercase letter and 1 number" required pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,24}">
             </br>
-            <button type="submit" id="loginButton">Log in</button>
+            <button type="submit" id="loginButton">Continue</button>
+            <div class="line"></div>
             <button type="button" href="register.html" id="registerButton">Register</button>
         </form>
     </div>
 
-    <div id="footer"></div>
+    
 </body>
+</html>

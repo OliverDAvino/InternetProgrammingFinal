@@ -6,7 +6,7 @@ body
 
 footer
 {
-    background: linear-gradient(135deg,#4b6cb7,#182848);
+    background-color:  rgba(32, 29, 72);
     display: grid;
     color: white;
     grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
