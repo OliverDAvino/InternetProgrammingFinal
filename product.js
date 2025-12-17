@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", (e) => {
-    addAllProducts("desc");
+    addAllProducts();
 
     addSortChange();
+    addMaxAndMinChange();
 })
 
 
@@ -10,12 +11,9 @@ function addProduct(name, category, price, description, stock, imgId, changeNum)
     var product = $("<div>").addClass("product"); // add on click product: show product page
     var info = $("<div>").addClass("info");
 
-    if (imgId % changeNum == 0){
-        var imgUrl = "https://picsum.photos/200/300?random=" + imgId;
-    }
-    else{
-        var imgUrl = "https://picsum.photos/200/300?random=" + (imgId - (imgId%changeNum));
-    }
+
+    var imgUrl = "https://picsum.photos/200/300?random=" + (imgId - (imgId%changeNum));
+    
     product.append(`<img src="${imgUrl}" alt="Random image">`);
 
     product.append(info);
@@ -33,41 +31,30 @@ function addProduct(name, category, price, description, stock, imgId, changeNum)
 }
 
 
-async function addAllProducts(sort){
+async function addAllProducts(){
     var products = $("#products");
+
+    var sort = $("#sort").val();
 
     var params = new URLSearchParams(window.location.search);
     var category = params.get('category');
-    if (category == "Products" || category == null){
-        var allProducts = await fetch("data/products.json").then(r => r.json());
 
-        
-        if (sort == "asc"){
-            allProducts.sort((a, b) => a.price - b.price);
-        }
-        else{
-            allProducts.sort((a, b) => b.price - a.price);
-        }
+    var allProducts = await fetch(`data/${category}.json`).then(r => r.json());
 
-        allProducts.forEach(p => {
-            products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 400));
-        });
+    allProducts = allProducts.filter(product => $("#maxPriceRange").val() >= product.price && product.price >= $("#minPriceRange").val());
+
+    if (sort == "asc"){
+        allProducts.sort((a, b) => a.price - b.price);
     }
     else{
-        var allProducts = await fetch(`data/${category}.json`).then(r => r.json());
-
-        if (sort == "asc"){
-            allProducts.sort((a, b) => a.price - b.price);
-        }
-        else{
-            allProducts.sort((a, b) => b.price - a.price);
-        }
-
-        allProducts.forEach(p => {
-            products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 67));
-        });
+        allProducts.sort((a, b) => b.price - a.price);
     }
+
+    allProducts.forEach(p => {
+        products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 67));
+    });
 }
+
 
 function clear(){
     $("#products").html("");
@@ -76,14 +63,25 @@ function clear(){
 function addSortChange(){
     $("#sort").change(() => {
         clear();
-        console.log($("#sort").val())
-        addAllProducts($("#sort").val());
-
+        console.log()
+        addAllProducts();
     })
 }
 
 function addMaxAndMinChange(){
     $("#maxPriceRange").change(() => {
+        var val = $("#maxPriceRange").val();
+        $("#minPriceRange").attr("max", val);
+        $("#maxPriceValue").html(val + "$");
+        clear();
+        addAllProducts();
+    });
 
-    })
+    $("#minPriceRange").change(() => {
+        var val = $("#minPriceRange").val();
+        $("#maxPriceRange").attr("min", val);
+        $("#minPriceValue").html(val + "$");
+        clear();
+        addAllProducts();
+    });
 }
