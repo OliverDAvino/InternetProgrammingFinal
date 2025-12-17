@@ -2,17 +2,17 @@ document.addEventListener("DOMContentLoaded", (e) => {
     addAllProducts();
 })
 
-function addProduct(name, category, price, description, stock, imgId){
+function addProduct(name, category, price, description, stock, imgId, changeNum){
     var product = $("<div>").addClass("product"); // add on click product: show product page
     product.append(`Product Name: ${name}<br>`);
     product.append(`Categoty: ${category}<br>`);
     product.append(`Price: ${price}$<br>`);
     product.append(`Description: ${description}<br>`);
-    if (imgId % 7 == 0){
+    if (imgId % changeNum == 0){
         var imgUrl = "https://picsum.photos/200/300?random=" + imgId;
     }
     else{
-        var imgUrl = "https://picsum.photos/200/300?random=" + (imgId - (imgId%7));
+        var imgUrl = "https://picsum.photos/200/300?random=" + (imgId - (imgId%changeNum));
     }
     product.append(`<img src="${imgUrl}" alt="Random image"><br>`);
     product.append(`Stock: ${stock}<br>`);
@@ -29,14 +29,17 @@ async function addAllProducts(){
     console.log(category);
     if (category == "Home" || category == null){
         var allProducts = await fetch("data/products.json").then(r => r.json());
+
+        allProducts.forEach(p => {
+            products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 7));
+        });
     }
     else{
         var allProducts = await fetch(`data/${category}.json`).then(r => r.json());
+        allProducts.forEach(p => {
+            products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 1));
+        });
     }
-
-    allProducts.forEach(p => {
-        products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id));
-    });
 }
 
 function clear(){
