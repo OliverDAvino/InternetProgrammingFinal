@@ -15,7 +15,9 @@ $(document).ready(async function () {
   //////////////
 
     $("a.category").click((e) => {
-        
+        e.preventDefault();
+
+        window.location.href = "mainPage.html";
     });
 });
 
