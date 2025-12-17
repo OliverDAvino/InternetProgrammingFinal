@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", (e) => {
-    addAllProducts();
+    addAllProducts("desc");
+
+    $("#sort").change(() => {
+        clear();
+        addAllProducts("desc");
+
+    })
 })
 
 function addProduct(name, category, price, description, stock, imgId, changeNum){
@@ -21,7 +27,7 @@ function addProduct(name, category, price, description, stock, imgId, changeNum)
 }
 
 
-async function addAllProducts(){
+async function addAllProducts(sort){
     var products = $("#products");
 
     var params = new URLSearchParams(window.location.search);
