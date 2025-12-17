@@ -2,13 +2,17 @@ $(document).ready(() => {
 
     $("#registerButton").click(() => {
         window.location.href = "register.html";
-    })
+    });
+
+    $("#goback").click(() => {
+        window.location.href = "mainPage.html";
+    });
 
     $("#loginForm").submit((e) => {
         e.preventDefault();
 
         login();
-    })
+    });
 })
 
 function login(){
