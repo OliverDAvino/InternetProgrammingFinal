@@ -6,10 +6,11 @@ let products = [];
 
 
 $(document).ready(async function () {
-  await loadHeader();
-  setupHeaderButtons();
-  setupLiveSearch();
-  await loadProducts();
+    await loadHeader();
+    setupHeaderButtons();
+    setupLiveSearch();
+    await loadProducts();
+  
 
 
   //////////////
@@ -21,7 +22,16 @@ $(document).ready(async function () {
     });
 });
 
-
+function isLoggedIn(){
+    var cookies = document.cookie.split(";");
+    for (var cookie of cookies){
+        var [name, value] = cookie.split("=");
+        if (name.trim() == "loginToken"){
+            return true;
+        }
+    }
+    return false;
+}
 
 async function loadHeader() {
   const html = await fetch("header.html").then(r => r.text());
@@ -29,13 +39,25 @@ async function loadHeader() {
 }
 
 function setupHeaderButtons() {
-  $("#cartButton").click(() => {
-    window.location.href = "cart.html";
-  });
+    $("div.logo").click(() => {
+        window.location.href = "mainPage.html";
+    });
 
-  $("#signOutButton").click(() => {
-    window.location.href = "login.html";
-  });
+    $("#cartButton").click(() => {
+        window.location.href = "cart.html";
+    });
+
+    if (isLoggedIn()) $("#signOutButton").text("Account");
+
+    $("#signOutButton").click(() => {
+        if (isLoggedIn()){
+            $("#signOutButton").text("Account");
+            window.location.href = "account.html";
+        }
+        else{
+            window.location.href = "login.html";
+        }
+    });
 }
 
 async function loadProducts() {
