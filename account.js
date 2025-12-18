@@ -18,10 +18,21 @@ $(document).ready(() => {
     //     return;
     // }
 
-    $("#userName").text(name);
-    $("#userEmail").text(email);
+    // $("#userName").text(name);
+    // $("#userEmail").text(email);
     $("#userAvatar").attr("src", "images/default-avatar.png");
+
+    setupLogOutButton();
 });
+
+function setupLogOutButton(){
+    $("#logOutButton").click(() => {
+        document.cookie = "loginToken=; max-age=-9999999";
+        window.location.href = "mainPage.html";
+    });
+
+    
+}
 
 // function getExpiration(key) {
 //     const itemStr = localStorage.getItem(key);
