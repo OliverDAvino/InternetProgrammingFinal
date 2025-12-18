@@ -90,10 +90,7 @@ function addProduct(name, category, price, description, stock, imgId, changeNum,
 function addButtonEvent(button){
     button.click(() => {
 
-        var amt = getCartAmt();
-
-        document.cookie = "cartAmt=" + (amt+1);
-
+        
         
 
         var params = new URLSearchParams(window.location.search);
@@ -104,18 +101,20 @@ function addButtonEvent(button){
 
         var cart = getCart();
 
+        let qty = parseInt($("#quantity").val());
         if (cart[sku] == undefined){
             cart[sku] = { 
                 name: name,
                 price: price,
-                quantity: parseInt($("#quantity").val())
+                quantity: qty
             };
         }
         else{
-            cart[sku].quantity += parseInt($("#quantity").val());
+            cart[sku].quantity += qty;
         }
-
-
+        var amt = getCartAmt();
+        
+        document.cookie = "cartAmt=" + (getCartAmt() + qty);
         document.cookie = "cart=" + JSON.stringify(cart);
 
         alert("added to cart");
