@@ -48,32 +48,6 @@ function addDivEvent(product){
     });
 }
 
-function getCartAmt(){
-    var cookies = document.cookie.split(";");
-    for (var cookie of cookies){
-        var [name, value] = cookie.split("=");
-        console.log(name );
-        if (name.trim() == "cartAmt"){
-            return parseInt(value);
-        }
-    }
-    document.cookie = "cartAmt=0";
-    return 0;
-}
-
-function getCart(){
-    var cookies = document.cookie.split(";");
-    for (var cookie of cookies){
-        var [name, value] = cookie.split("=");
-        console.log(name );
-        if (name.trim() == "cart"){
-            return JSON.parse(value);
-        }
-    }
-    document.cookie = "cart=";
-    return 0;
-}
-
 
 async function addAllProducts(){
     var products = $("#products");
