@@ -1,0 +1,94 @@
+.hero{
+    display: flex;
+    width:100%;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 700px;
+    overflow: hidden;
+    position: relative;
+    margin-top:95px;
+}
+
+.hero .section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.6;
+    filter: saturate(0.6);
+    transition: all 300ms ease;
+}
+
+.hero .section:hover img {
+    filter: saturate(1);
+    opacity: 1;
+}
+
+.hero .section {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.hero .section:hover {
+    color: white;
+}
+
+.hero .number {
+    font-size: 20px;
+    weight: bold;
+    position: relative;
+    transition: all 300ms ease;
+}
+
+.hero .number::before {
+    position: absolute;
+    content: "";
+    height: 4px;
+    width: 0px;
+    opacity: 0;
+    left: -46px;
+    top: 50%;
+    background: turquoise;
+    transition: all 300ms ease;
+}
+
+.hero .section:hover .number::before {
+    opacity: 1;
+    width: 36px;
+}
+
+.hero .section:hover .number {
+    font-size: 50px;
+    transform: translateX(40px);
+}
+
+.hero .section h2 {
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.hero .bottom {
+    height: 200px;
+    transform: translateY(80px);
+    transition: all 300ms ease;
+}
+
+.hero .section:hover .bottom{
+    transform: translateY(0);
+}
+
+.hero .section p {
+    font-size: 16px;
+    opacity: 0;
+    line-height: 1.7;
+}
+
+.hero .section:hover p{
+    opacity: 1;
+}
