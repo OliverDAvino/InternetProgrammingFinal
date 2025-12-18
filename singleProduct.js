@@ -151,7 +151,7 @@ async function addAllProducts(category){
     var allProducts = await fetch(`data/${category}.json`).then(r => r.json());
 
     allProducts.forEach(p => {
-        products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 67, p.sku));
+        products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 1, p.sku));
     });
 }
 
