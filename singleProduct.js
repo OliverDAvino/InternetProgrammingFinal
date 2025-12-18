@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 function addProduct(name, category, price, description, stock, imgId, changeNum, sku){
     if (name === undefined){
-var params = new URLSearchParams(window.location.search);
+    var params = new URLSearchParams(window.location.search);
 
     var name = params.get("name");
     var category = params.get("category");
@@ -37,7 +37,24 @@ var params = new URLSearchParams(window.location.search);
     info.append(`Price: <div class="price" value="${price}">${price}</div><br>`);
     info.append(`Description: <div class="description" value="${description}">${description}</div><br>`);
     info.append(`Stock: <div class="stock" value="${stock}">${stock}</div><br>`);
-    
+
+    let input = $("<input>").attr({
+        type: "number",
+        id: "quantity",
+        min: 1,
+        max: 100,
+        value: 1,
+    });
+    input.change(() => {
+        let qt = parseInt($("#quantity").val());
+        if (qt < 1){
+            $("#quantity").val(1);
+        }
+        else if (qt > 100){
+            $("#quantity").val(100);
+        }
+    })
+    info.append(input);
     var button = $("<button>");
     product.append(button.html("Add to Cart"));
 
@@ -72,28 +89,36 @@ var params = new URLSearchParams(window.location.search);
 
 function addButtonEvent(button){
     button.click(() => {
+
         var amt = getCartAmt();
 
         document.cookie = "cartAmt=" + (amt+1);
 
-        var cart = getCart();
+        
 
         var params = new URLSearchParams(window.location.search);
 
+        var sku = params.get("sku");
         var name = params.get("name");
         var price = params.get("price");
 
-        var product = {
-        name: name,
-        price: price
-        };
+        var cart = getCart();
 
-        cart.push(product);
+        if (cart[sku] == undefined){
+            cart[sku] = { 
+                name: name,
+                price: price,
+                quantity: parseInt($("#quantity").val())
+            };
+        }
+        else{
+            cart[sku].quantity += parseInt($("#quantity").val());
+        }
 
 
         document.cookie = "cart=" + JSON.stringify(cart);
 
-        
+        alert("added to cart");
     });
 }
 
@@ -118,7 +143,6 @@ function getCartAmt(){
     var cookies = document.cookie.split(";");
     for (var cookie of cookies){
         var [name, value] = cookie.split("=");
-        console.log(name );
         if (name.trim() == "cartAmt"){
             return parseInt(value);
         }
@@ -131,17 +155,16 @@ function getCart(){
     var cookies = document.cookie.split(";");
     for (var cookie of cookies){
         var [name, value] = cookie.split("=");
-        console.log(name );
         if (name.trim() == "cart"){
             return JSON.parse(value);
         }
     }
 
-    var arr = [];
+    var dict = {};
 
 
-    document.cookie = "cart=" + JSON.stringify(arr);
-    return arr;
+    document.cookie = "cart=" + JSON.stringify(dict);
+    return dict;
 }
 
 
