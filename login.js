@@ -28,7 +28,8 @@ function login(){
 
             if (r.token === getRegToken()){
                 document.cookie = "loginToken=" + r.token;
-                window.location.href = "account.html"
+                document.cookie = "loginEmail=" + $(email).val();
+                window.location.href = "account.html";
             }
             else{
                 alert("You need to register first.")

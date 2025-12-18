@@ -8,18 +8,8 @@ $(document).ready(() => {
         window.location.href = "login.html";
         return;
     }
-
-    // const name = getExpiration("name");
-    // const email = getExpiration("email");
-
-    // if (!name || !email) {
-    //     alert("Session expired. Please log in again.");
-    //     window.location.href = "login.html";
-    //     return;
-    // }
-
-    // $("#userName").text(name);
-    // $("#userEmail").text(email);
+    $("#userName").text(getCookieValue("regUsername"));
+    $("#userEmail").text(getCookieValue("loginEmail"));
     $("#userAvatar").attr("src", "images/default-avatar.png");
 
     setupLogOutButton();
@@ -28,22 +18,20 @@ $(document).ready(() => {
 function setupLogOutButton(){
     $("#logOutButton").click(() => {
         document.cookie = "loginToken=; max-age=-9999999";
-        window.location.href = "mainPage.html";
+        document.cookie = "loginEmail=; max-age=-9999999";
+        window.location.href = "login.html";
     });
 
-    
 }
 
-// function getExpiration(key) {
-//     const itemStr = localStorage.getItem(key);
-//     if (!itemStr) return null;
+function getCookieValue(cookieName){
+    var cookies = document.cookie.split(";");
+    for (var cookie of cookies){
+        var [name, value] = cookie.split("=");
+        console.log(name);
+        if (name.trim() == cookieName){
+            return value;
+        }
+    }
+}
 
-//     const item = JSON.parse(itemStr);
-//     const now = new Date();
-
-//     if (now.getTime() > item.expiry) {
-//         localStorage.removeItem(key);
-//         return null;
-//     }
-//     return item.value;
-// }
