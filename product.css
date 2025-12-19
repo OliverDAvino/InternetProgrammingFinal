@@ -226,12 +226,23 @@ body
     animation: fadingin 0.8s ease-in-out;
     display: block;
     position: relative;
-    top:300px;
+    top:250px;
     margin: 0px 0px;
     text-align: center;
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 
    
+}
+
+.headings h1,h3
+{
+    margin: 0px 0px;
+
+}
+
+.headings h3
+{
+    padding-top: 15px;
 }
 
 @keyframes fadingin
