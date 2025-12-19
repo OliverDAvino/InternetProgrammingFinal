@@ -72,7 +72,12 @@ function addProduct(name, category, price, description, stock, id, changeNum, sk
         var button = $("<button>");
         product.append(button.html("Add to Cart"));
 
+        let wishButton = $("<button>");
+        wishButton.addClass("wishlist");
+        product.append(button.html("Add to Wishlist"));
+
         addButtonEvent(button);
+        wishButtonEvent(wishButton);
 
         return product;
     }
@@ -101,6 +106,29 @@ function addProduct(name, category, price, description, stock, id, changeNum, sk
 
         return product;
     }
+}
+
+function wishButtonEvent(button){
+    button.click(() => {
+        var params = new URLSearchParams(window.location.search);
+
+        var id = params.get("id");
+        var name = params.get("name");
+        var price = params.get("price");
+
+        var wishlist = getWishlist();
+
+        if (wishlist[id] == undefined){
+            wishlist[id] = { 
+                name: name,
+                price: price
+            };
+        }
+
+        document.cookie = "wishlist=" + JSON.stringify(wishlist);
+
+        alert("added to wishlist");
+    });
 }
 
 function addButtonEvent(button){
@@ -175,6 +203,22 @@ function getCart(){
 
 
     document.cookie = "cart=" + JSON.stringify(dict);
+    return dict;
+}
+
+function getWishlist(){
+    var cookies = document.cookie.split(";");
+    for (var cookie of cookies){
+        var [name, value] = cookie.split("=");
+        if (name.trim() == "wishlist"){
+            return JSON.parse(value);
+        }
+    }
+
+    var dict = {};
+
+
+    document.cookie = "wishlist=" + JSON.stringify(dict);
     return dict;
 }
 
