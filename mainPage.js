@@ -49,12 +49,12 @@ async function setTop5RatedProduct(){
 }
 
 
-function addProduct(name, category, price, description, stock, imgId, changeNum, sku){
+function addProduct(name, category, price, description, stock, id, changeNum, sku){
     var product = $("<div>").addClass("product"); // add on click product: show product page
     var info = $("<div>").addClass("info");
 
 
-    var imgUrl = "https://picsum.photos/200/300?random=" + (imgId - (imgId%changeNum));
+    var imgUrl = "https://picsum.photos/200/300?random=" + (id - (id%changeNum));
     
     product.append(`<img src="${imgUrl}" alt="Random image">`);
 
@@ -67,6 +67,8 @@ function addProduct(name, category, price, description, stock, imgId, changeNum,
     info.append(`Price: <div class="price" value="${price}">${price}</div><br>`);
     info.append(`Description: <div class="description" value="${description}">${description}</div><br>`);
     info.append(`Stock: <div class="stock" value="${stock}">${stock}</div><br>`);
+    info.append(`<div class="id" value="${id}"></div><br>`);
+
 
     addDivEvent(product);
 
@@ -84,7 +86,8 @@ function addDivEvent(product){
         `&sku=${encodeURIComponent(el.find(".sku").attr("value"))}` +
         `&price=${encodeURIComponent(el.find(".price").attr("value"))}` +
         `&description=${encodeURIComponent(el.find(".description").attr("value"))}` +
-        `&stock=${encodeURIComponent(el.find(".stock").attr("value"))}`;
+        `&stock=${encodeURIComponent(el.find(".stock").attr("value"))}` +
+        `&id=${encodeURIComponent(el.find(".id").attr("value"))}`;
 
         window.location.href = url;
     });

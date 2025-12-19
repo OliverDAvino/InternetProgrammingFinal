@@ -4,11 +4,25 @@ document.addEventListener("DOMContentLoaded", (e) => {
     addProduct();
 
     var params = new URLSearchParams(window.location.search);
+    addReviews(params.get("id"));
+
     addAllProducts(params.get("category"));
-})
+});
 
+async function addReviews(id){
+    let reviews = await fetch("data/reviews.json").then(r => r.json());
 
-function addProduct(name, category, price, description, stock, imgId, changeNum, sku){
+    reviews = reviews[id-1].reviews;
+    console.log(reviews);
+    reviews.forEach(r => {
+        console.log(1);
+        $("#reviews").append($("<div>").addClass("review").append(`<h4>Title: ${r.title}</h4>`)
+                                                          .append(`<p>User: ${r.user}\t\tRating: ${r.rating}</p>`)
+                                                          .append(`<p>Comment: ${r.comment}</p>`));
+    })
+}
+
+function addProduct(name, category, price, description, stock, id, changeNum, sku){
     if (name === undefined){
     var params = new URLSearchParams(window.location.search);
 
@@ -37,6 +51,7 @@ function addProduct(name, category, price, description, stock, imgId, changeNum,
     info.append(`Price: <div class="price" value="${price}">${price}</div><br>`);
     info.append(`Description: <div class="description" value="${description}">${description}</div><br>`);
     info.append(`Stock: <div class="stock" value="${stock}">${stock}</div><br>`);
+    info.append(`<div class="id" value="${id}"></div><br>`);
 
     let input = $("<input>").attr({
         type: "number",
@@ -67,7 +82,7 @@ function addProduct(name, category, price, description, stock, imgId, changeNum,
         var info = $("<div>").addClass("info");
 
 
-        var imgUrl = "https://picsum.photos/200/300?random=" + (imgId - (imgId%changeNum));
+        var imgUrl = "https://picsum.photos/200/300?random=" + (id - (id%changeNum));
         
         product.append(`<img src="${imgUrl}" alt="Random image">`);
 
@@ -80,6 +95,8 @@ function addProduct(name, category, price, description, stock, imgId, changeNum,
         info.append(`Price: <div class="price" value="${price}">${price}</div><br>`);
         info.append(`Description: <div class="description" value="${description}">${description}</div><br>`);
         info.append(`Stock: <div class="stock" value="${stock}">${stock}</div><br>`);
+        info.append(`<div class="id" value="${id}"></div><br>`);
+
 
         addDivEvent(product);
 
@@ -89,21 +106,17 @@ function addProduct(name, category, price, description, stock, imgId, changeNum,
 
 function addButtonEvent(button){
     button.click(() => {
-
-        
-        
-
         var params = new URLSearchParams(window.location.search);
 
-        var sku = params.get("sku");
+        var sku = params.get("id");
         var name = params.get("name");
         var price = params.get("price");
 
         var cart = getCart();
 
         let qty = parseInt($("#quantity").val());
-        if (cart[sku] == undefined){
-            cart[sku] = { 
+        if (cart[id] == undefined){
+            cart[id] = { 
                 name: name,
                 price: price,
                 quantity: qty
@@ -112,8 +125,7 @@ function addButtonEvent(button){
         else{
             cart[sku].quantity += qty;
         }
-        var amt = getCartAmt();
-        
+
         document.cookie = "cartAmt=" + (getCartAmt() + qty);
         document.cookie = "cart=" + JSON.stringify(cart);
 
@@ -132,7 +144,8 @@ function addDivEvent(product){
         `&sku=${encodeURIComponent(el.find(".sku").attr("value"))}` +
         `&price=${encodeURIComponent(el.find(".price").attr("value"))}` +
         `&description=${encodeURIComponent(el.find(".description").attr("value"))}` +
-        `&stock=${encodeURIComponent(el.find(".stock").attr("value"))}`;
+        `&stock=${encodeURIComponent(el.find(".stock").attr("value"))}` +
+        `&id=${encodeURIComponent(el.find(".id").attr("value"))}`;
 
         window.location.href = url;
     });
