@@ -60,6 +60,7 @@ header > div{
   align-items: center;
   width: 75%;
   position: relative;
+  color: black;
 }
 
 #searchBar{ 
@@ -68,7 +69,6 @@ header > div{
     margin-right: 3%;
     border-radius: 0 9px 9px 0; 
     font-size: 16px;
-
 
 
 }
