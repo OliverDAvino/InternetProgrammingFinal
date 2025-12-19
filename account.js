@@ -15,6 +15,8 @@ $(document).ready(() => {
     setupLogOutButton();
 });
 
+// function addInputEvent
+
 function saveEdits(){
     $("#userName").change(() => {
         document.cookie = "regUsername=" + $("#userName").val();
