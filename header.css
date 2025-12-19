@@ -21,7 +21,9 @@ header > div{
 }
 
 
-
+.logo:hover {
+    cursor: pointer;
+}
 
 
 .logo{
