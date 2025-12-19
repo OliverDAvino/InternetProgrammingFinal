@@ -102,6 +102,25 @@ aside#summary
     /* background-color: #fff; */
 }
 
+
+#breadcrumb {
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    display: flex;
+    gap: 20px;
+    color: none;
+}
+
+#breadcrumb a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#breadcrumb a:hover{
+    text-decoration: underline;
+}
+
 main > div {
     margin-top: 6%;
     text-align: center;
