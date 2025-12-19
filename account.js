@@ -20,6 +20,8 @@ $(document).ready(() => {
 function saveEdits(){
     document.cookie = "regUsername=" + $("#userName").val();
     document.cookie = "loginEmail=" + $("#userEmail").val();
+    $("#saveChangeButton").hide();
+
     alert("Saved the Changes");
 }
 

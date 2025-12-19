@@ -1,5 +1,13 @@
 $(document).ready(() => {
-    
+    if (!getCookieValue("loginToken")){
+        window.location.href = "login.html";
+    }
+
+    $("#checkoutButton").click(() => {
+        window.location.href = "checkout.html";
+    });
+
+
 })
 
 
@@ -17,8 +25,7 @@ function getCookieValue(cookieName){
 
 // Display cart
 function displayCart() {
-    const container = document.getElementById('cart-container');
-    container.innerHTML = '';
+    let container = $('#cart-container');
     cart.forEach(item => {
         const div = document.createElement('div');
         div.className = 'cart-item';
