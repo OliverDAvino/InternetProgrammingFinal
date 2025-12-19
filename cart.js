@@ -41,7 +41,8 @@ function displayPrice(){
     $("#qst").html(qst.toFixed(2));
     $("#gst").html(gst.toFixed(2));
     $("#total").html((total + qst + gst).toFixed(2));
-    
+
+    document.cookie = "total=" + (total + qst + gst).toFixed(2);
 }
 
 function displayCartAmt(){

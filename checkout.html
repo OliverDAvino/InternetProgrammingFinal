@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+        <title>Checkout</title>
         <link rel="stylesheet" href="checkout.css">
         <link rel="stylesheet" href="header.css">
         <link rel="stylesheet" href="footer.css">
@@ -8,6 +9,7 @@
         <script src="header.js"></script>
         <script src="footer.js"></script>
     <script src="checkout.js"></script>
+
 </head>
 <body>
         <div id="header"></div>
@@ -21,7 +23,7 @@
                         <input type="text" placeholder="name" id="username">
                         <br><br><br>
                         <label for="email">Email:</label>
-                        <input type="text" placeholder="email" id="email">
+                        <input type="email" placeholder="email" id="email">
                         <br><br><br>
                         <label for="phone">Phone Number:</label>
                         <input type="text" placeholder="phone number" id="phone">
@@ -33,16 +35,16 @@
 
                         <div class="delivery-container">
                                 <label>
-                                        <input type="checkbox" name="delivery" value="standard">
+                                        <input type="radio" name="delivery" value="standard">
                                         Standard Delivery (3-5 days)
                                 </label>
                                 <label>
-                                        <input type="checkbox" name="delivery" value="express">
+                                        <input type="radio" name="delivery" value="express">
                                         Express Delivery (1-2 days)
                                 </label>
 
                                 <label>
-                                        <input type="checkbox" name="delivery" value="same-day">
+                                        <input type="radio" name="delivery" value="same-day">
                                         Same-Day Delivery
                                 </label>
                         </div>
@@ -55,10 +57,9 @@
         
         </div>
 
-        <aside>
+        <aside id="summary">
                 <h3 class="order-Title">Order Summary</h3>
-
-
+                <h3 class="order-Title" id="total"></h3>
         </aside>
         </main>
 
