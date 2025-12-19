@@ -11,7 +11,7 @@ $(document).ready(async function () {
     setupLiveSearch();
     await loadProducts();
   
-
+    $("#counter").html(getCartAmt());
 
   //////////////
 
@@ -21,6 +21,18 @@ $(document).ready(async function () {
         window.location.href = "product.html?category=" + encodeURIComponent(url);
     });
 });
+
+function getCartAmt(){
+    var cookies = document.cookie.split(";");
+    for (var cookie of cookies){
+        var [name, value] = cookie.split("=");
+        if (name.trim() == "cartAmt"){
+            return parseInt(value);
+        }
+    }
+    document.cookie = "cartAmt=0";
+    return 0;
+}
 
 function isLoggedIn(){
     var cookies = document.cookie.split(";");

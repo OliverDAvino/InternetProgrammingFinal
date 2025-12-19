@@ -14,6 +14,7 @@ function display(){
     displayCartAmt();
     displayCart();
     displayPrice();
+    $("#counter").html(getCookieValue("cartAmt"));
 }
 
 function getCookieValue(cookieName){

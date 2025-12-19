@@ -20,6 +20,13 @@ header > div{
 
 }
 
+#counter{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 20px;
+    color: white;
+}
 
 .logo:hover {
     cursor: pointer;

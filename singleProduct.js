@@ -156,6 +156,7 @@ function addButtonEvent(button){
         document.cookie = "cartAmt=" + (getCartAmt() + qty);
         document.cookie = "cart=" + JSON.stringify(cart);
 
+        $("#counter").html(getCartAmt());
         alert("added to cart");
     });
 }
