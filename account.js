@@ -1,4 +1,6 @@
 $(document).ready(() => {
+    $("#saveChangeButton").hide();
+
     const token = document.cookie
         .split(";")
         .find(c => c.trim().startsWith("loginToken="))
@@ -10,20 +12,27 @@ $(document).ready(() => {
     }
     $("#userName").val(getCookieValue("regUsername"));
     $("#userEmail").val(getCookieValue("loginEmail"));
-    saveEdits();
+    addInputEvent();
     setProfilePicture();
     setupLogOutButton();
 });
 
-// function addInputEvent
-
 function saveEdits(){
+    document.cookie = "regUsername=" + $("#userName").val();
+    document.cookie = "loginEmail=" + $("#userEmail").val();
+}
+
+function addInputEvent(){
     $("#userName").change(() => {
-        document.cookie = "regUsername=" + $("#userName").val();
+        $("#saveChangeButton").show();
     });
 
     $("#userEmail").change(() => {
-        document.cookie = "loginEmail=" + $("#userEmail").val();
+        $("#saveChangeButton").show();
+    });
+
+    $("#saveChangeButton").click(() => {
+        saveEdits()
     });
 }
 
