@@ -7,7 +7,7 @@ $(document).ready(() => {
         window.location.href = "checkout.html";
     });
 
-
+    displayCart();
 })
 
 
@@ -15,30 +15,45 @@ function getCookieValue(cookieName){
     var cookies = document.cookie.split(";");
     for (var cookie of cookies){
         var [name, value] = cookie.split("=");
-        console.log(name);
         if (name.trim() == cookieName){
             return value;
         }
     }
-    return false;
+    return 0;
 }
 
 // Display cart
 function displayCart() {
+    $("#cartTotalText").append(" (" + getCookieValue("cartAmt") + " items)");
+
     let container = $('#cart-container');
+    cart = Object.entries(JSON.parse(getCookieValue("cart")));
     cart.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <h4>${item.name}</h4>
-            <p>Price: $${item.price.toFixed(2)}</p>
-            <p>Quantity: ${item.quantity}</p>
-            <button onclick="removeFromCart(${item.id})">Remove</button>
-        `;
-        container.appendChild(div);
+        id = item[0];
+        product = item[1];
+        let div = $("<div>").addClass("cart-item").append($("<img>").attr({src: `https://picsum.photos/id/${id}/200/300`, alt:`${product.name}`}))
+                                                  .append($("<h4>").html(product.name))
+                                                  .append($("<p>").html("Price: " + product.price + "$"))
+                                                  .append($("<p>").html("Quantity: " + product.quantity));
+        let button = $("<button>");
+        button.attr("id", id);
+        addButtonEvent(button)
+        // div.innerHTML = `
+        //     <img src="${product.image}" alt="${product.name}">
+        //     <h4>${product.name}</h4>
+        //     <p>Price: $${product.price.toFixed(2)}</p>
+        //     <p>Quantity: ${product.quantity}</p>
+        //     <button onclick="removeFromCart(${product.id})">Remove</button>
+        // `;
+        container.append(div);
     });
 
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     container.innerHTML += `<h3>Total: $${total.toFixed(2)}</h3>`;
+}
+
+function addButtonEvent(button){
+    button.click(() => {
+        
+    })
 }

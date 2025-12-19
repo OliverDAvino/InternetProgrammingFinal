@@ -13,9 +13,7 @@ async function addReviews(id){
     let reviews = await fetch("data/reviews.json").then(r => r.json());
 
     reviews = reviews[id-1].reviews;
-    console.log(reviews);
     reviews.forEach(r => {
-        console.log(1);
         $("#reviews").append($("<div>").addClass("review").append(`<h4>Title: ${r.title}</h4>`)
                                                           .append(`<p>User: ${r.user}\t\tRating: ${r.rating}</p>`)
                                                           .append(`<p>Comment: ${r.comment}</p>`));
@@ -108,7 +106,7 @@ function addButtonEvent(button){
     button.click(() => {
         var params = new URLSearchParams(window.location.search);
 
-        var sku = params.get("id");
+        var id = params.get("id");
         var name = params.get("name");
         var price = params.get("price");
 
@@ -123,7 +121,7 @@ function addButtonEvent(button){
             };
         }
         else{
-            cart[sku].quantity += qty;
+            cart[id].quantity += qty;
         }
 
         document.cookie = "cartAmt=" + (getCartAmt() + qty);
