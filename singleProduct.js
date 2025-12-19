@@ -37,7 +37,7 @@ function addProduct(name, category, price, description, stock, id, changeNum, sk
         
         var product = $("#singleProduct");
 
-        var imgUrl = `https://picsum.photos/id/${parseInt(id)%1084}/200/300`;
+        var imgUrl = "https://picsum.photos/200/300?random=" + (id - (id%changeNum));
         
         product.append(`<img src="${imgUrl}" alt="Random image">`);
 
@@ -81,7 +81,7 @@ function addProduct(name, category, price, description, stock, id, changeNum, sk
         var info = $("<div>").addClass("info");
 
 
-        var imgUrl = `https://picsum.photos/id/${parseInt(id)%1084}/200/300`;
+        var imgUrl = "https://picsum.photos/200/300?random=" + (id - (id%changeNum));
         
         product.append(`<img src="${imgUrl}" alt="Random image">`);
 
