@@ -2,6 +2,7 @@ $(document).ready(() => {
     $("#orderNumber").html("Order number: " + (Math.floor(Math.random()*8999999999999 + 1000000000000)));
 
     showOrder();
+    deleteCookies();
 });
 
 function showOrder(){
@@ -12,6 +13,13 @@ function showOrder(){
     cart.forEach((p) => {
         $("#summary").append(`<div class="item">${p.name} (${p.price}$) Qty: ${p.quantity}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${(parseFloat(p.price)*parseInt(p.quantity)).toFixed(2)}$</div>`);
     });
+}
+
+function deleteCookies(){
+    document.cookie = "cartAmt=; max-age=-99999";
+    document.cookie = "cart=; max-age=-99999";
+    document.cookie = "total=; max-age=-99999";
+    document.cookie = "cartAmt=; max-age=-99999";
 }
 
 function getCookieValue(cookieName){
