@@ -1,4 +1,19 @@
+$(document).ready(() => {
+    
+})
 
+
+function getCookieValue(cookieName){
+    var cookies = document.cookie.split(";");
+    for (var cookie of cookies){
+        var [name, value] = cookie.split("=");
+        console.log(name);
+        if (name.trim() == cookieName){
+            return value;
+        }
+    }
+    return false;
+}
 
 // Display cart
 function displayCart() {

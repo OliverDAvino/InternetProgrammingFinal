@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-        <link rel="stylesheet" href="cart.css">
-        <link rel="stylesheet" href="header.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="header.js"></script>
-        <script src="cart.js"></script>
+        <head>
+                <link rel="stylesheet" href="cart.css">
+                <link rel="stylesheet" href="header.css">
+                <link rel="stylesheet" href="footer.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <!-- ADD OTHER JS FILES HERE -->
+                <script src="header.js"></script>
+                <script src="footer.js"></script>
+                <script src="cart.js"></script>
 
-        <title>Shopping Cart</title>
-</head>
+                <title>Shopping Cart</title>
+        </head>
 
-<body>
-        <div id="header"></div>
-        <main class="dropMain">
-                <h1>Your Shopping Cart</h1>
-                
+        <body>
+                <div id="header"></div>
+                <br><br><br><br><br><br>
+                <main class="dropMain">
+                        <h1>Your Shopping Cart</h1>
                         <aside>                     
                                 <div id="cart-summary">
                                         <h3>Cart Total</h3>
@@ -24,11 +27,11 @@
                                         <p>Total: $<span id="total">0.00</span></p>
                                 </div>
                                 <div id="cart-actions">
-                                        <a href="product.html">Continue Shopping</a>
+                                        <a href="product.html?category=Products">Continue Shopping</a>
                                         <button id="checkoutButton">Proceed to Checkout</button>
                                 </div> 
                         </aside>
-            </div> 
-        </main>
-</body>
+                </main>
+                <div id="footer"></div>
+        </body>
 </html>

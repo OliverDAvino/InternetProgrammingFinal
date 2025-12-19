@@ -82,7 +82,7 @@ async function addAllProducts(){
     }
 
     await allProducts.forEach(p => {
-        products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 67, p.sku));
+        products.append(addProduct(p.name, p.category, p.price, p.description, p.stock, p.id, 2000, p.sku));
     });
 }
 

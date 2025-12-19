@@ -20,6 +20,7 @@ $(document).ready(() => {
 function saveEdits(){
     document.cookie = "regUsername=" + $("#userName").val();
     document.cookie = "loginEmail=" + $("#userEmail").val();
+    alert("Saved the Changes");
 }
 
 function addInputEvent(){
@@ -67,5 +68,6 @@ function getCookieValue(cookieName){
             return value;
         }
     }
+    return false;
 }
 
