@@ -51,6 +51,15 @@ main
     /* color: black; */
 }
 
+.field > label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Fredoka', sans-serif;
+    
+}
+
 .checkoutform input
 {
     width: 100%;
@@ -80,9 +89,11 @@ main
 }
 
 .delivery-container input[type="radio"] {
+    position: relative;
+    top: 20px;
+    left: 150px;
     margin: 0;
-    align-self: center;
-    transform: translateY(2px);
+    flex-shrink: 0;
     
 }
 
@@ -185,6 +196,26 @@ body{
     font-weight: 500;
     font-size: 14px;
     font-family: 'Fredoka',sans-serif;
+}
+
+.delivery-option 
+{
+    display: grid;
+    grid-template-columns: 18px auto;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delivery-option input[type="radio"] 
+{
+    margin: 0;
+}
+
+.delivery-option span 
+{
+    line-height: 1.4;
 }
 
 @keyframes fadingin
