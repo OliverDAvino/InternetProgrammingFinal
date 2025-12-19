@@ -7,10 +7,14 @@ $(document).ready(() => {
         window.location.href = "checkout.html";
     });
 
-    displayCart();
-    displayPrice();
+    display();
 })
 
+function display(){
+    displayCartAmt();
+    displayCart();
+    displayPrice();
+}
 
 function getCookieValue(cookieName){
     var cookies = document.cookie.split(";");
@@ -26,17 +30,26 @@ function getCookieValue(cookieName){
 function displayPrice(){
     let cart = Object.values(JSON.parse(getCookieValue("cart")));
     let total = 0;
-    // cart.forEach((product) => {
-    //     total += product.price;
-    // });
+    cart.forEach((product) => {
+        total += parseFloat(product.price) * product.quantity;
+    });
 
-    console.log(total);
-    console.log(cart);
+    let qst = total * 0.09975;
+    let gst = total * 0.05;
+
+    $("#subtotal").html(total.toFixed(2));
+    $("#qst").html(qst.toFixed(2));
+    $("#gst").html(gst.toFixed(2));
+    $("#total").html((total + qst + gst).toFixed(2));
+    
 }
 
+function displayCartAmt(){
+    $("#cartTotalText").html("Cart Total (" + getCookieValue("cartAmt") + " items)");
+}
 
 function displayCart() {
-    $("#cartTotalText").html("Cart Total (" + getCookieValue("cartAmt") + " items)");
+    
 
     let container = $('#cart');
     container.html("");
@@ -51,6 +64,7 @@ function displayCart() {
             min: 1,
             max: 1000,
             value: product.quantity,
+            pid: id
         });
         input.change(() => {
             let qt = parseInt($("#quantity").val());
@@ -71,6 +85,7 @@ function displayCart() {
         button.attr("value", id);
         button.html("Remove")
         addButtonEvent(button)
+        addNumInputEvent(input);
 
         div.append(button);
         container.append(div);
@@ -80,9 +95,33 @@ function displayCart() {
 function addButtonEvent(button){
     button.click(function () {
         let cart = JSON.parse(getCookieValue("cart"));
+        let qty = cart[$(this).val()].quantity;
         delete cart[$(this).val()];
         document.cookie = "cart=" + JSON.stringify(cart);
-        displayCart();
-        displayPrice();
+        document.cookie = "cartAmt=" + (getCookieValue("cartAmt") - qty);
+        display();
     })
+}
+
+function addNumInputEvent(input){
+    input.change(function () {
+        let qt = parseInt($(this).val());
+        if (qt < 1){
+            $("this").val(1);
+        }
+        else if (qt > 1000){
+            $("this").val(1000);
+        }
+    });
+
+    input.change(function () {
+        let cart = JSON.parse(getCookieValue("cart"));
+        let prevQty = cart[$(this).attr('pid')].quantity;
+        cart[$(this).attr('pid')].quantity = input.val();
+        
+        document.cookie = "cart=" + JSON.stringify(cart);
+        document.cookie = "cartAmt=" + (parseInt(getCookieValue("cartAmt")) + (input.val() -  prevQty));
+
+        display();
+    });
 }
