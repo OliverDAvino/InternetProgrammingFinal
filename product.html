@@ -15,21 +15,26 @@
             <div id="header"></div>
 
             <div id="content"></div>
-
-
-            <label for="sort">Sort By: </label>
+            
+            <button class="selections" id="selections">Filter</button>
+            <form class="options">
+            <label for="sort">Sort By </label>
             <select id="sort">
                 <option value="desc">High to Low</option>
                 <option value="asc">Low to High</option>
             </select>
 
-            <label for="priceRange">Min Price: </label>
+            <label for="priceRange">Min Price </label>
             <input type="range" id="minPriceRange" min="0" max="250" step="10" value="0">
             <span id="minPriceValue">0$</span>
             
-            <label for="priceRange">Max Price: </label>
+            <label for="priceRange">Max Price </label>
             <input type="range" id="maxPriceRange" min="0" max="250" step="10" value="250">
             <span id="maxPriceValue">250$</span>
+            </form>
+
+
+            
 
 
             <div class="containerforproducts">
@@ -40,6 +45,7 @@
 
 
             <div id="footer"></div>
+
             
     </body>
 </html>

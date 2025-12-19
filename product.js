@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     addSortChange();
     addMaxAndMinChange();
+
+    document.getElementById("selections").addEventListener("click", () => {
+      document.querySelector(".options").classList.toggle("active");
+    });
 })
 
 
