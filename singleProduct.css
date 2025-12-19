@@ -1,7 +1,7 @@
 
 html,body
 {
-    height: 1025px;
+    height: 100%;
 }
 
 body
@@ -76,6 +76,25 @@ body
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.2s ease;
+}
+
+
+#breadcrumb {
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    display: flex;
+    gap: 20px;
+    color: none;
+}
+
+#breadcrumb a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#breadcrumb a:hover{
+    text-decoration: underline;
 }
 
 #reviews {
