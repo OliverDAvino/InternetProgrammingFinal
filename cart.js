@@ -24,7 +24,14 @@ function getCookieValue(cookieName){
 }
 
 function displayPrice(){
+    let cart = Object.values(JSON.parse(getCookieValue("cart")));
+    let total = 0;
+    // cart.forEach((product) => {
+    //     total += product.price;
+    // });
 
+    console.log(total);
+    console.log(cart);
 }
 
 
