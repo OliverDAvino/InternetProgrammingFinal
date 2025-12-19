@@ -26,18 +26,21 @@ function getCookieValue(cookieName){
 function displayCart() {
     $("#cartTotalText").append(" (" + getCookieValue("cartAmt") + " items)");
 
-    let container = $('#cart-container');
+    let container = $('#cart');
     cart = Object.entries(JSON.parse(getCookieValue("cart")));
     cart.forEach(item => {
         id = item[0];
         product = item[1];
-        let div = $("<div>").addClass("cart-item").append($("<img>").attr({src: `https://picsum.photos/id/${id}/200/300`, alt:`${product.name}`}))
+        let div = $("<div>").addClass("cart-item").append($("<img>").attr({src: `https://picsum.photos/id/${parseInt(id)%1084}/200/300`, alt:`${product.name}`}))
                                                   .append($("<h4>").html(product.name))
                                                   .append($("<p>").html("Price: " + product.price + "$"))
                                                   .append($("<p>").html("Quantity: " + product.quantity));
         let button = $("<button>");
         button.attr("id", id);
+        button.html("Remove")
         addButtonEvent(button)
+
+        div.append(button);
         // div.innerHTML = `
         //     <img src="${product.image}" alt="${product.name}">
         //     <h4>${product.name}</h4>
@@ -54,6 +57,6 @@ function displayCart() {
 
 function addButtonEvent(button){
     button.click(() => {
-        
+
     })
 }
