@@ -35,6 +35,16 @@ function validInput(){
         document.getElementById("shipping")
     ];
 
+    // check phone number regex
+    const phoneInput = document.getElementById("phone");
+    const phoneRegex = /^(?:\d{10}|\d{3}[- ]\d{3}[- ]\d{4})$/;
+
+    if (!phoneRegex.test(phoneInput.value.trim())) {
+        alert("Invalid phone number! \nValid phone number formats: 5146642286, 514 664 2286, 514-664-2286.");
+        phoneInput.focus();
+        return false;
+    }
+
     // check empty text inputs
     for (let input of inputs) {
         if (input.value.trim() == "") {
