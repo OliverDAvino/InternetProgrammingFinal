@@ -158,10 +158,10 @@ body
 .options
 {
     position: relative;
-    left: 100px;
-    top:320px;
+    left: 13px;
+    top:-40px;
     padding: 20px 24px;
-    width: 380px;
+    width: 360px;
     max-width: 90%;
     border-radius: 14px;
     display: flex;
@@ -252,7 +252,7 @@ body
    
     position: relative;
     top:200px;
-    left: 1030px;
+    left: 920px;
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-size: 10px;
     max-width: 50px;
