@@ -9,4 +9,14 @@ body{
     border-bottom: 2px solid #000;
 }
 
+aside#summary
+{
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid #000;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
 
