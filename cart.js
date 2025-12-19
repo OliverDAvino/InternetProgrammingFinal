@@ -57,6 +57,6 @@ function displayCart() {
 
 function addButtonEvent(button){
     button.click(() => {
-
+        
     })
 }

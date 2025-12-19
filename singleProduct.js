@@ -22,65 +22,66 @@ async function addReviews(id){
 
 function addProduct(name, category, price, description, stock, id, changeNum, sku){
     if (name === undefined){
-    var params = new URLSearchParams(window.location.search);
+        var params = new URLSearchParams(window.location.search);
 
-    var name = params.get("name");
-    var category = params.get("category");
-    var sku = params.get("sku");
-    var price = params.get("price");
-    var description = params.get("description");
-    var stock = params.get("stock");
+        var name = params.get("name");
+        var category = params.get("category");
+        var sku = params.get("sku");
+        var price = params.get("price");
+        var description = params.get("description");
+        var stock = params.get("stock");
+        var id = params.get("id");
 
-    
-    var info = $("<div>").addClass("info");
-    
-    var product = $("#singleProduct");
+        
+        var info = $("<div>").addClass("info");
+        
+        var product = $("#singleProduct");
 
-    var imgUrl = "https://picsum.photos/200/300";
-    
-    product.append(`<img src="${imgUrl}" alt="Random image">`);
+        var imgUrl = `https://picsum.photos/id/${parseInt(id)%1084}/200/300`;
+        
+        product.append(`<img src="${imgUrl}" alt="Random image">`);
 
-    product.append(info);
-    
+        product.append(info);
+        
 
-    info.append(`Product Name: <div class="productName" value="${name}">${name}</div><br>`);
-    info.append(`Category: <div class="category" value="${category}">${category}</div><br>`);
-    info.append(`SKU: <div class="sku" value="${sku}">${sku}</div><br>`);
-    info.append(`Price: <div class="price" value="${price}">${price}</div><br>`);
-    info.append(`Description: <div class="description" value="${description}">${description}</div><br>`);
-    info.append(`Stock: <div class="stock" value="${stock}">${stock}</div><br>`);
-    info.append(`<div class="id" value="${id}"></div><br>`);
+        info.append(`Product Name: <div class="productName" value="${name}">${name}</div><br>`);
+        info.append(`Category: <div class="category" value="${category}">${category}</div><br>`);
+        info.append(`SKU: <div class="sku" value="${sku}">${sku}</div><br>`);
+        info.append(`Price: <div class="price" value="${price}">${price}</div><br>`);
+        info.append(`Description: <div class="description" value="${description}">${description}</div><br>`);
+        info.append(`Stock: <div class="stock" value="${stock}">${stock}</div><br>`);
+        info.append(`<div class="id" value="${id}"></div><br>`);
 
-    let input = $("<input>").attr({
-        type: "number",
-        id: "quantity",
-        min: 1,
-        max: 100,
-        value: 1,
-    });
-    input.change(() => {
-        let qt = parseInt($("#quantity").val());
-        if (qt < 1){
-            $("#quantity").val(1);
-        }
-        else if (qt > 100){
-            $("#quantity").val(100);
-        }
-    })
-    info.append(input);
-    var button = $("<button>");
-    product.append(button.html("Add to Cart"));
+        let input = $("<input>").attr({
+            type: "number",
+            id: "quantity",
+            min: 1,
+            max: 100,
+            value: 1,
+        });
+        input.change(() => {
+            let qt = parseInt($("#quantity").val());
+            if (qt < 1){
+                $("#quantity").val(1);
+            }
+            else if (qt > 100){
+                $("#quantity").val(100);
+            }
+        })
+        info.append(input);
+        var button = $("<button>");
+        product.append(button.html("Add to Cart"));
 
-    addButtonEvent(button);
+        addButtonEvent(button);
 
-    return product;
+        return product;
     }
     else{
         var product = $("<div>").addClass("product"); // add on click product: show product page
         var info = $("<div>").addClass("info");
 
 
-        var imgUrl = "https://picsum.photos/200/300?random=" + (id - (id%changeNum));
+        var imgUrl = `https://picsum.photos/id/${parseInt(id)%1084}/200/300`;
         
         product.append(`<img src="${imgUrl}" alt="Random image">`);
 
