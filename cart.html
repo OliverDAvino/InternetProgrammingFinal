@@ -15,24 +15,31 @@
 
         <body>
                 <div id="header"></div>
-                <br><br><br><br><br><br>
-                <main class="dropMain">
-                        <h1>Your Shopping Cart</h1>
-                        <aside>
-                                <div id="cart-summary">
-                                        <h3 id="cartTotalText">Cart Total</h3>
-                                        <p>Subtotal: $<span id="subtotal">0.00</span></p>
-                                        <p>QST (9.975%): $<span id="tax">0.00</span></p>
-                                        <p>GST (5%): $<span id="tax">0.00</span></p>
-                                        <p>Total: $<span id="total">0.00</span></p>
-                                </div>
-                                <div id="cart"></div>
-                                <div id="cart-actions">
-                                        <a href="product.html?category=Products">Continue Shopping</a>
-                                        <button id="checkoutButton">Proceed to Checkout</button>
-                                </div>
-                        </aside>
-                </main>
+                <div id="content"></div>
+                <main class="cart-page">
+    <br><br><br><br>
+    <h1>Your Shopping Cart</h1>
+    <div class="cartbox">
+        <section id="cart"></section>
+        <aside class="sideofbar">
+            <div id="summary">
+                <h3 id="cartTotalText">Cart Total</h3>
+                <p>Subtotal: $<span id="subtotal">0.00</span></p>
+                <p>QST (9.975%): $<span id="qst">0.00</span></p>
+                <p>GST (5%): $<span id="gst">0.00</span></p>
+                <hr>
+                <p class="finaltotal">
+                    Total: $<span id="total">0.00</span>
+                </p>
+            </div>
+
+            <div id="afteractions">
+                <a href="product.html?category=Products">Continue Shopping</a>
+                <button id="checkoutButton">Proceed to Checkout</button>
+            </div>
+        </aside>
+    </div>
+</main>
                 <div id="footer"></div>
         </body>
 </html>

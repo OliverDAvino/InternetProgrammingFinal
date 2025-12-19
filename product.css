@@ -42,6 +42,8 @@ body
     flex-direction: column;
     box-sizing: border-box;
     border: 2px solid transparent;
+    border-radius: 14px;
+
 
     
 
@@ -63,7 +65,7 @@ body
     height: 140px;
     object-fit: cover;
     display: block;
-
+    border-radius: 14px;
     -webkit-user-drag: none;
     user-select: none;
     pointer-events: none;
