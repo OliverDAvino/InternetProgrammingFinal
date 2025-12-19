@@ -243,6 +243,11 @@ body
 
 }
 
+.headings h1
+{
+    padding-top: 20px;
+}
+
 .headings h3
 {
     padding-top: 15px;
@@ -250,11 +255,11 @@ body
 
 .logo2
 {
-    margin-right: auto;
-   
-    position: relative;
-    top:200px;
-    left: 920px;
+    
+    
+
+    display: block;
+    margin: 0px auto ;
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-size: 10px;
     max-width: 50px;
@@ -275,7 +280,7 @@ body
     
     color: white;
     margin-top: 18px;
-    margin-left: 5.5px;
+    margin-left: 6px;
     
     font-weight: bold;
 
