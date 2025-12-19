@@ -3,7 +3,7 @@
   --base-variant: #e8e9ed;
   --text-color: black;
   --secondary-text: #232738;
-  --primaty-color: #3a435d;
+  --primary-color: #3a435d;
   --accent-color: #0071ff;
 }
 
@@ -12,7 +12,7 @@
   --base-variant: #101425;
   --text-color: white;
   --secondary-text: #a4a5b8;
-  --primaty-color: #3a435d;
+  --primary-color: #3a435d;
   --accent-color: #0071ff;
 }
 
@@ -20,4 +20,36 @@
 body{
     background-color: var(--base-color);
     color: var(--text-color)
+}
+
+#theme-switcher{
+    height:50px;
+    width:50px;
+    padding:0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 120px;
+    right: 20px;
+}
+
+#theme-switcher svg{
+    fill: var(--primary-color);
+}
+
+#theme-switcher svg:last-child{
+    display: none;
+}
+
+
+.darkmode #theme-switcher svg:first-child{
+    display:none;
+}
+
+
+.darkmode #theme-switcher svg:last-child{
+    display: block;
 }

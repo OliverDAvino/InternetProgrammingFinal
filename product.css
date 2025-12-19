@@ -39,7 +39,6 @@ body
     height: 500px;
     display: flex;
     flex-direction: column;
-    background: #fff;
     box-sizing: border-box;
     border: 2px solid transparent;
 
@@ -98,7 +97,6 @@ body
     padding: 10px;
     overflow-y: hidden;
     border-radius: 14px;
-    background: linear-gradient(180deg,#fafafa,#f0f0f0);
     border: 2px solid #033c64;
     
 
@@ -150,7 +148,6 @@ body
     font-weight: 500;
     border-radius: 8px;
     border: 1px solid #0f75bb;
-    background:linear-gradient(180deg, #ffffff, #f2f2f2);
     color: black;
     cursor: pointer;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -164,7 +161,6 @@ body
     padding: 20px 24px;
     width: 380px;
     max-width: 90%;
-    background: linear-gradient(180deg, #fafafa, #f0f0f0);
     border-radius: 14px;
     display: flex;
     flex-direction: column;
@@ -211,7 +207,6 @@ body
     padding: 8px 14px;
     font-size: 14px;
     font-weight: 600;
-    color: #fff;
     background: #0f75bb;
     border: none;
     cursor: pointer;
