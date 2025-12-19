@@ -74,7 +74,7 @@ function addProduct(name, category, price, description, stock, id, changeNum, sk
 
         let wishButton = $("<button>");
         wishButton.addClass("wishlist");
-        product.append(button.html("Add to Wishlist"));
+        product.append(wishButton.html("Add to Wishlist"));
 
         addButtonEvent(button);
         wishButtonEvent(wishButton);
