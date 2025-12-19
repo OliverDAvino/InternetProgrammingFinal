@@ -4,7 +4,7 @@ main > div {
     margin-right: 5%;
 }
 
-main > div > button {
+main #orderButton{
     width: 200px;
     height: 45px;
     border-radius: 20px;
@@ -29,6 +29,9 @@ main {
     padding: 40px;
 }
 
+body{
+    margin-top:95px;
+}
 
 .order-Title {
     text-align: center;

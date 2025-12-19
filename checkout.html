@@ -11,9 +11,44 @@
         <div id="header"></div>
 
         <main>
+
+                <form>
+                                        <h1>Checkout</h1>
+
+                        <label for="username">Name:</label>
+                        <input type="text" placeholder="name" id="username">
+                        <br><br><br>
+                        <label for="email">Email:</label>
+                        <input type="text" placeholder="email" id="email">
+                        <br><br><br>
+                        <label for="phone">Phone Number:</label>
+                        <input type="text" placeholder="phone number" id="phone">
+                        <br><br><br><br>
+
+                        <label for="shipping">Shipping address:</label>
+                        <input type="text" placeholder="address" id="shipping">
+                        <br><br><br>
+
+                        <div class="delivery-container">
+                                <label>
+                                        <input type="checkbox" name="delivery" value="standard">
+                                        Standard Delivery (3-5 days)
+                                </label>
+                                <label>
+                                        <input type="checkbox" name="delivery" value="express">
+                                        Express Delivery (1-2 days)
+                                </label>
+
+                                <label>
+                                        <input type="checkbox" name="delivery" value="same-day">
+                                        Same-Day Delivery
+                                </label>
+                        </div>
+                                        <button id="orderButton">Place Order</button>
+                </form>
         <div> 
-                <h1>Checkout</h1>
-                <button>Place Order</button>
+
+
         
         
         </div>
