@@ -2,6 +2,7 @@
 html,body
 {
     height: 100%;
+    min-height: 0;
 }
 
 body
@@ -23,7 +24,7 @@ body
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
-    overflow-y: auto;
+    overflow-y: hidden;
     gap: 10px;
     padding: 10px;
     height: 100%;
@@ -93,7 +94,7 @@ body
     margin: 10px auto;
     width: 1000px;
     max-width: 95%;
-    height: 500px;
+    min-height: 525px;
     padding: 10px;
     overflow-y: hidden;
     border-radius: 14px;
@@ -243,6 +244,40 @@ body
 .headings h3
 {
     padding-top: 15px;
+}
+
+.logo2
+{
+    margin-right: auto;
+   
+    position: relative;
+    top:200px;
+    left: 1030px;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    max-width: 50px;
+    max-width: 50px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    background-color: #0f75bb;
+    animation: fadingin 0.8s ease-in-out;
+
+}
+
+
+.logo2 p
+{
+
+    
+    
+    color: white;
+    margin-top: 18px;
+    margin-left: 5.5px;
+    
+    font-weight: bold;
+
+    
 }
 
 @keyframes fadingin
