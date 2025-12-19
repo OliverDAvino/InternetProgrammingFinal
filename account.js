@@ -8,12 +8,22 @@ $(document).ready(() => {
         window.location.href = "login.html";
         return;
     }
-    $("#userName").text(getCookieValue("regUsername"));
-    $("#userEmail").text(getCookieValue("loginEmail"));
-    $("#userAvatar").attr("src", "images/default-avatar.png");
-
+    $("#userName").val(getCookieValue("regUsername"));
+    $("#userEmail").val(getCookieValue("loginEmail"));
+    saveEdits();
+    setProfilePicture();
     setupLogOutButton();
 });
+
+function saveEdits(){
+    $("#userName").change(() => {
+        document.cookie = "regUsername=" + $("#userName").val();
+    });
+
+    $("#userEmail").change(() => {
+        document.cookie = "loginEmail=" + $("#userEmail").val();
+    });
+}
 
 function setupLogOutButton(){
     $("#logOutButton").click(() => {
@@ -21,7 +31,20 @@ function setupLogOutButton(){
         document.cookie = "loginEmail=; max-age=-9999999";
         window.location.href = "login.html";
     });
+}
 
+function setProfilePicture(){
+    $.ajax({
+        method: "GET",
+        url: "https://reqres.in/api/users/1",
+        contentType: "application/json",
+        headers: {"x-api-key": "reqres_f1ac177d9f6748d1924e2bdb8a2f312c"},
+        success: (r) => {
+            console.log(r);
+            $("#userAvatar").attr("src", r["data"].avatar);
+        },
+        error: (err) => {console.log(err.responseText)}
+    });
 }
 
 function getCookieValue(cookieName){
