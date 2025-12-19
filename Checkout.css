@@ -1,6 +1,6 @@
 html,body
 {
-    height: 1025px;
+    height: 100%;
 }
 
 body
@@ -76,7 +76,7 @@ main
     align-items: center;
     gap: 10px;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .delivery-container input[type="radio"] {
