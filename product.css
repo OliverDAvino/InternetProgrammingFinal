@@ -98,6 +98,7 @@ body
     overflow-y: hidden;
     border-radius: 14px;
     border: 2px solid #033c64;
+    animation: fadingin 0.8s ease-in-out;
     
 
     
@@ -210,6 +211,7 @@ body
     background: #0f75bb;
     border: none;
     cursor: pointer;
+    animation: fadingin 0.8s ease-in-out;
 }
 
 .selections:hover
@@ -219,3 +221,22 @@ body
 
 }
 
+.headings
+{
+    animation: fadingin 0.8s ease-in-out;
+    display: block;
+    position: relative;
+    top:300px;
+    margin: 0px 0px;
+    text-align: center;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+   
+}
+
+@keyframes fadingin
+{
+    from{opacity:0;transform:translateY(-20px);}
+    to{opacity:1;transform:translateY(0);}
+
+}
