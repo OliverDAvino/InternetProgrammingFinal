@@ -24,8 +24,9 @@ body
     padding: 30px;
     display: flex;
     gap: 30px;
-    background: #ffffff;
+    /* background: #ffffff; */
     border-radius: 12px;
+    border: 1px solid #ccc;
     box-shadow: 0 12px 30px rgba(0,0,0,0.1);
     animation: fadingin 0.8s ease-in-out;
 
@@ -84,7 +85,7 @@ body
 
 }
 .review {
-    background: #FFF;
+    border: 1px solid #ccc;
     padding: 20px;
     margin-bottom: 15px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
